@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Chatlist</class>
+ <widget class="QWidget" name="Chatlist">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>315</width>
+    <height>674</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="addFriendButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>530</y>
+     <width>291</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>添加好友</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="createGroupButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>580</y>
+     <width>291</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>创建群聊</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="addGroupButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>620</y>
+     <width>291</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>添加群聊</string>
+   </property>
+  </widget>
+  <widget class="QTabWidget" name="tabWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>260</width>
+     <height>460</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>260</width>
+     <height>460</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>260</width>
+     <height>460</height>
+    </size>
+   </property>
+   <property name="whatsThis">
+    <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QTabBar::tab{width:110}</string>
+   </property>
+   <property name="currentIndex">
+    <number>0</number>
+   </property>
+   <widget class="QWidget" name="tab_1">
+    <attribute name="title">
+     <string>好友</string>
+    </attribute>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QListWidget" name="friendList"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="tab_2">
+    <attribute name="title">
+     <string>群聊</string>
+    </attribute>
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QListWidget" name="groupList"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
