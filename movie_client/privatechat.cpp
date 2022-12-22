@@ -1,0 +1,70 @@
+#include "privatechat.h"
+#include "ui_privatechat.h"
+
+PrivateChat::PrivateChat(QTcpSocket *s, QString u, QString f, Chatlist *c, QList<ChatWidgetInfo> *l, QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::PrivateChat)
+{
+    ui->setupUi(this);
+    socket = s;
+    userName = u;
+    friendName = f;
+    mainWidget = c;
+    chatWidgetList = l;
+
+    connect(mainWidget, &Chatlist::signal_to_sub_widget, this, &PrivateChat::show_text_slot);
+}
+
+PrivateChat::~PrivateChat()
+{
+    delete ui;
+}
+
+// 发送消息按钮被点击
+void PrivateChat::on_sendButton_clicked()
+{
+    QString text = ui->lineEdit->text();
+    QJsonObject obj;
+    obj.insert("cmd", "private_chat");
+    obj.insert("user_from", userName);
+    obj.insert("user_to", friendName);
+    obj.insert("text", text);
+    QByteArray ba = QJsonDocument(obj).toJson();
+    socket->write(ba);
+
+    ui->lineEdit->clear();
+    ui->textEdit->append(text);
+    ui->textEdit->append("\n");
+}
+
+// 显示双方私聊消息
+void PrivateChat::show_text_slot(QJsonObject obj)
+{
+    if (obj.value("cmd").toString() == "private_chat")
+    {
+        if (obj.value("user_from").toString() == friendName)
+        {
+            if (this->isMinimized())
+            {
+                this->showNormal();
+            }
+            this->activateWindow();
+            ui->textEdit->append(obj.value("text").toString());
+            ui->textEdit->append("\n");
+        }
+    }
+}
+
+// 关闭对话框
+void PrivateChat::closeEvent(QCloseEvent *event)
+{
+    for (int i = 0; i < chatWidgetList->size(); i++)
+    {
+        if (chatWidgetList->at(i).name == friendName)
+        {
+            chatWidgetList->removeAt(i);
+            break;
+        }
+    }
+    event->accept();
+}

@@ -28,8 +28,8 @@ Chatlist::Chatlist(QTcpSocket *s, QString fri, QString group, QString u, QWidget
         }
     }
 
-//    connect(ui->friendList, &QListWidget::itemDoubleClicked, this, &Chatlist::on_friendList_double_clicked);
-//    connect(ui->groupList, &QListWidget::itemDoubleClicked, this, &Chatlist::on_groupList_double_clicked);
+    connect(ui->friendList, &QListWidget::itemDoubleClicked, this, &Chatlist::on_friendList_double_clicked);
+    connect(ui->groupList, &QListWidget::itemDoubleClicked, this, &Chatlist::on_groupList_double_clicked);
 }
 
 Chatlist::~Chatlist()
@@ -63,6 +63,22 @@ void Chatlist::server_reply(){
     else if (cmd == "add_group_reply")
     {
         client_add_group_reply(obj);
+    }
+    else if (cmd == "private_chat_reply")
+    {
+        client_private_chat_reply(obj.value("result").toString());
+    }
+    else if (cmd == "private_chat")
+    {
+        client_chat_reply(obj);
+    }
+    else if (cmd == "get_group_member_reply")
+    {
+        client_get_group_member_reply(obj);
+    }
+    else if (cmd == "group_chat")
+    {
+        client_group_chat_reply(obj);
     }
 }
 
@@ -121,6 +137,75 @@ void Chatlist::client_add_group_reply(QJsonObject &obj)
     }
 }
 
+// 发送端私聊请求服务器回复
+void Chatlist::client_private_chat_reply(QString res)
+{
+    if (res == "offline")
+    {
+        QMessageBox::warning(this, "发送提醒", "对方不在线");
+    }
+}
+
+// 接收端私聊功能服务器回复
+void Chatlist::client_chat_reply(QJsonObject &obj)
+{
+    int flag = 0;
+    // 遍历现有打开的聊天窗口，如果已经打开了就不再打开
+    for (int i = 0; i < chatWidgetList.size(); i++)
+    {
+        if (chatWidgetList.at(i).name == obj.value("user_from").toString())
+        {
+            flag = 1;
+            break;
+        }
+    }
+
+    if (flag == 0)   // 聊天窗口没有打开过
+    {
+        QString friendName = obj.value("user_from").toString();
+        PrivateChat *privateChatWidget = new PrivateChat(socket, userName, friendName, this, &chatWidgetList);
+        privateChatWidget->setWindowTitle(friendName);
+        privateChatWidget->show();
+
+        ChatWidgetInfo c = {privateChatWidget, friendName};
+        chatWidgetList.push_back(c);
+    }
+
+    emit signal_to_sub_widget(obj);
+}
+
+// 服务器回应获取群成员
+void Chatlist::client_get_group_member_reply(QJsonObject obj)
+{
+    emit signal_to_sub_widget_member(obj);
+}
+
+// 群聊有消息变动是服务器回复
+void Chatlist::client_group_chat_reply(QJsonObject obj)
+{
+    int flag = 0;
+    for (int i = 0; i < groupWidgetList.size(); i++)
+    {
+        if (groupWidgetList.at(i).name == obj.value("group").toString())
+        {
+            flag = 1;
+            break;
+        }
+    }
+
+    if(flag == 0)
+    {
+        QString groupName = obj.value("group").toString();
+        GroupChat *groupChatWidget = new GroupChat(socket, groupName, userName, this, &groupWidgetList);
+        groupChatWidget->setWindowTitle(groupName);
+        groupChatWidget->show();
+
+        groupWidgetInfo g = {groupChatWidget, groupName};
+        groupWidgetList.push_back(g);
+    }
+
+    emit signal_to_sub_widget_group(obj);
+}
 
 /*-----下面是点击事件处理-----*/
 
@@ -130,6 +215,7 @@ void Chatlist::on_addFriendButton_clicked()
     Addfriend *addFriendWidget = new Addfriend(socket, userName);
     addFriendWidget->show();
 }
+
 // 创建群聊按键被点击
 void Chatlist::on_createGroupButton_clicked()
 {
@@ -137,8 +223,34 @@ void Chatlist::on_createGroupButton_clicked()
     createGroupWidget->show();
 }
 
+// 添加群聊按键被点击
 void Chatlist::on_addGroupButton_clicked()
 {
     AddGroup *addGroupWidget = new AddGroup(socket, userName);
     addGroupWidget->show();
 }
+
+// 双击好友列表
+void Chatlist::on_friendList_double_clicked()
+{
+    QString friendName = ui->friendList->currentItem()->text();
+    PrivateChat *privateChatWidget = new PrivateChat(socket, userName, friendName, this, &chatWidgetList);
+    privateChatWidget->setWindowTitle(friendName);
+    privateChatWidget->show();
+
+    ChatWidgetInfo c = {privateChatWidget, friendName};
+    chatWidgetList.push_back(c);
+}
+
+// 双击群聊列表
+void Chatlist::on_groupList_double_clicked()
+{
+    QString groupName = ui->groupList->currentItem()->text();
+    GroupChat *groupChatWidget = new GroupChat(socket, groupName, userName, this, &groupWidgetList);
+    groupChatWidget->setWindowTitle(groupName);
+    groupChatWidget->show();
+
+    groupWidgetInfo g = {groupChatWidget, groupName};
+    groupWidgetList.push_back(g);
+}
+

@@ -20,7 +20,9 @@ SOURCES += \
     addgroup.cpp \
     chatlist.cpp \
     creategroup.cpp \
+    groupchat.cpp \
     main.cpp \
+    privatechat.cpp \
     widget.cpp
 
 HEADERS += \
@@ -28,6 +30,8 @@ HEADERS += \
     addgroup.h \
     chatlist.h \
     creategroup.h \
+    groupchat.h \
+    privatechat.h \
     widget.h
 
 FORMS += \
@@ -35,6 +39,8 @@ FORMS += \
     addgroup.ui \
     chatlist.ui \
     creategroup.ui \
+    groupchat.ui \
+    privatechat.ui \
     widget.ui
 
 # Default rules for deployment.
