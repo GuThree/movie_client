@@ -15,11 +15,13 @@ Addfriend::~Addfriend()
     delete ui;
 }
 
+// 点击取消添加好友
 void Addfriend::on_cancelButton_clicked()
 {
     this->close();
 }
 
+// 添加好友按键被点击
 void Addfriend::on_addfriendButton_clicked()
 {
     QString friendName = ui->lineEdit->text();

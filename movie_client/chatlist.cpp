@@ -10,6 +10,7 @@ Chatlist::Chatlist(QTcpSocket *s, QString fri, QString group, QString u, QWidget
     socket = s;
     connect(socket, &QTcpSocket::readyRead, this, &Chatlist::server_reply);
 
+    // 陈列用户的好友和群聊内容
     QStringList friList = fri.split('|');
     for (int i = 0; i < friList.size(); i++)
     {
@@ -18,7 +19,6 @@ Chatlist::Chatlist(QTcpSocket *s, QString fri, QString group, QString u, QWidget
             ui->friendList->addItem(friList.at(i));
         }
     }
-
     QStringList groList = group.split('|');
     for (int i = 0; i < groList.size(); i++)
     {
@@ -30,7 +30,6 @@ Chatlist::Chatlist(QTcpSocket *s, QString fri, QString group, QString u, QWidget
 
 //    connect(ui->friendList, &QListWidget::itemDoubleClicked, this, &Chatlist::on_friendList_double_clicked);
 //    connect(ui->groupList, &QListWidget::itemDoubleClicked, this, &Chatlist::on_groupList_double_clicked);
-
 }
 
 Chatlist::~Chatlist()
@@ -38,6 +37,7 @@ Chatlist::~Chatlist()
     delete ui;
 }
 
+// 服务器回复行为
 void Chatlist::server_reply(){
     QByteArray ba = socket->readAll();
     QJsonObject obj = QJsonDocument::fromJson(ba).object();
@@ -60,14 +60,20 @@ void Chatlist::server_reply(){
     {
         client_create_group_reply(obj);
     }
+    else if (cmd == "add_group_reply")
+    {
+        client_add_group_reply(obj);
+    }
 }
 
+// 好友登录服务器提醒用户
 void Chatlist::client_login_reply(QString fri)
 {
     QString str = QString("%1好友上线").arg(fri);
     QMessageBox::information(this, "好友上线提醒", str);
 }
 
+// 添加好友后服务器回复
 void Chatlist::client_add_friend_reply(QJsonObject &obj)
 {
     if (obj.value("result").toString() == "user_not_exist")
@@ -85,6 +91,7 @@ void Chatlist::client_add_friend_reply(QJsonObject &obj)
     }
 }
 
+// 创建群聊后服务器回复
 void Chatlist::client_create_group_reply(QJsonObject &obj)
 {
     if (obj.value("result").toString() == "group_exist")
@@ -97,17 +104,41 @@ void Chatlist::client_create_group_reply(QJsonObject &obj)
     }
 }
 
+// 添加群聊后服务器回复
+void Chatlist::client_add_group_reply(QJsonObject &obj)
+{
+    if (obj.value("result").toString() == "group_not_exist")
+    {
+        QMessageBox::warning(this, "添加群提示", "群不存在");
+    }
+    else if (obj.value("result").toString() == "user_in_group")
+    {
+        QMessageBox::warning(this, "添加群提示", "已经在群里面");
+    }
+    else if (obj.value("result").toString() == "success")
+    {
+        ui->groupList->addItem(obj.value("group").toString());
+    }
+}
 
-//
 
+/*-----下面是点击事件处理-----*/
+
+// 添加好友按键被点击
 void Chatlist::on_addFriendButton_clicked()
 {
     Addfriend *addFriendWidget = new Addfriend(socket, userName);
     addFriendWidget->show();
 }
-
+// 创建群聊按键被点击
 void Chatlist::on_createGroupButton_clicked()
 {
     CreateGroup *createGroupWidget = new CreateGroup(socket, userName);
     createGroupWidget->show();
+}
+
+void Chatlist::on_addGroupButton_clicked()
+{
+    AddGroup *addGroupWidget = new AddGroup(socket, userName);
+    addGroupWidget->show();
 }

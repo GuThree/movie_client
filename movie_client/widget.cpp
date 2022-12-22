@@ -23,6 +23,7 @@ void Widget::connect_success()
     QMessageBox::information(this, "连接提示", "连接服务器成功");
 }
 
+// 服务器回复行为
 void Widget::server_reply()
 {
     QByteArray ba = socket->readAll();
@@ -39,6 +40,7 @@ void Widget::server_reply()
     }
 }
 
+// 注册按钮被点击
 void Widget::on_registerButton_clicked()
 {
     QString username = ui->userLineEdit->text();
@@ -53,6 +55,7 @@ void Widget::on_registerButton_clicked()
     socket->write(ba);
 }
 
+// 登录按钮被点击
 void Widget::on_loginButton_clicked()
 {
     QString username = ui->userLineEdit->text();
@@ -69,6 +72,7 @@ void Widget::on_loginButton_clicked()
     socket->write(ba);
 }
 
+// 注册后服务器回复处理
 void Widget::client_register_handler(QString res)
 {
     if (res == "success")
@@ -81,6 +85,7 @@ void Widget::client_register_handler(QString res)
     }
 }
 
+// 登录后服务器回复处理
 void Widget::client_login_handler(QString res, QString fri, QString group)
 {
     if (res == "user_not_exist")

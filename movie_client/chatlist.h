@@ -10,7 +10,7 @@
 #include <QList>
 #include "addfriend.h"
 #include "creategroup.h"
-//#include "addgroup.h"
+#include "addgroup.h"
 //#include "sendthread.h"
 //#include "recvthread.h"
 
@@ -30,14 +30,15 @@ private slots:
     void server_reply();
 
     void on_addFriendButton_clicked();
-
     void on_createGroupButton_clicked();
+
+    void on_addGroupButton_clicked();
 
 private:
     void client_login_reply(QString);
     void client_add_friend_reply(QJsonObject &obj);
     void client_create_group_reply(QJsonObject &obj);
-//    void client_add_group_reply(QJsonObject &obj);
+    void client_add_group_reply(QJsonObject &obj);
 //    void client_private_chat_reply(QString);
 //    void client_chat_reply(QJsonObject &);
 //    void client_get_group_member_reply(QJsonObject);

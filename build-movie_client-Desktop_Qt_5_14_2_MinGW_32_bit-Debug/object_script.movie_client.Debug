@@ -1,0 +1,11 @@
+debug/addfriend.o
+debug/addgroup.o
+debug/chatlist.o
+debug/creategroup.o
+debug/main.o
+debug/widget.o
+debug/moc_addfriend.o
+debug/moc_addgroup.o
+debug/moc_chatlist.o
+debug/moc_creategroup.o
+debug/moc_widget.o

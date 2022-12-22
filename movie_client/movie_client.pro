@@ -17,6 +17,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     addfriend.cpp \
+    addgroup.cpp \
     chatlist.cpp \
     creategroup.cpp \
     main.cpp \
@@ -24,12 +25,14 @@ SOURCES += \
 
 HEADERS += \
     addfriend.h \
+    addgroup.h \
     chatlist.h \
     creategroup.h \
     widget.h
 
 FORMS += \
     addfriend.ui \
+    addgroup.ui \
     chatlist.ui \
     creategroup.ui \
     widget.ui

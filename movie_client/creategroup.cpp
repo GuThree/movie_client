@@ -15,11 +15,13 @@ CreateGroup::~CreateGroup()
     delete ui;
 }
 
+// 点击取消创建群聊
 void CreateGroup::on_cancelButton_clicked()
 {
     this->close();
 }
 
+// 创建群聊按钮被点击
 void CreateGroup::on_createButton_clicked()
 {
     QString groupName = ui->lineEdit->text();
