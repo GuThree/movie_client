@@ -80,6 +80,22 @@ void Chatlist::server_reply(){
     {
         client_group_chat_reply(obj);
     }
+    else if (cmd == "send_file_reply")
+    {
+        client_send_file_reply(obj.value("result").toString());
+    }
+    else if (cmd == "send_file_port_reply")
+    {
+        client_send_file_port_reply(obj);
+    }
+    else if (cmd == "recv_file_port_reply")
+    {
+        client_recv_file_port_reply(obj);
+    }
+    else if (cmd == "friend_offline")
+    {
+        client_friend_offline(obj.value("friend").toString());
+    }
 }
 
 // 好友登录服务器提醒用户
@@ -207,6 +223,37 @@ void Chatlist::client_group_chat_reply(QJsonObject obj)
     emit signal_to_sub_widget_group(obj);
 }
 
+void Chatlist::client_send_file_reply(QString res)
+{
+    if (res == "offline")
+    {
+        QMessageBox::warning(this, "发送文件提醒", "对方不在线");
+    }
+    else if (res == "timeout")
+    {
+        QMessageBox::warning(this, "发送文件提醒", "连接超时");
+    }
+}
+
+void Chatlist::client_send_file_port_reply(QJsonObject obj)
+{
+    SendThread *mySendthread = new SendThread(obj);
+    mySendthread->start();
+}
+
+void Chatlist::client_recv_file_port_reply(QJsonObject obj)
+{
+    RecvThread *myRecvThread = new RecvThread(obj);
+    myRecvThread->start();
+}
+
+// 好友线下服务器回复
+void Chatlist::client_friend_offline(QString fri)
+{
+    QString str = QString("%1下线").arg(fri);
+    QMessageBox::information(this, "下线提醒", str);
+}
+
 /*-----下面是点击事件处理-----*/
 
 // 添加好友按键被点击
@@ -254,3 +301,14 @@ void Chatlist::on_groupList_double_clicked()
     groupWidgetList.push_back(g);
 }
 
+void Chatlist::closeEvent(QCloseEvent *event)
+{
+    QJsonObject obj;
+    obj.insert("cmd", "offline");
+    obj.insert("user", userName);
+    QByteArray ba = QJsonDocument(obj).toJson();
+    socket->write(ba);
+    socket->flush();
+
+    event->accept();
+}

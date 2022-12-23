@@ -23,6 +23,8 @@ SOURCES += \
     groupchat.cpp \
     main.cpp \
     privatechat.cpp \
+    recvthread.cpp \
+    sendthread.cpp \
     widget.cpp
 
 HEADERS += \
@@ -32,6 +34,8 @@ HEADERS += \
     creategroup.h \
     groupchat.h \
     privatechat.h \
+    recvthread.h \
+    sendthread.h \
     widget.h
 
 FORMS += \

@@ -7,11 +7,12 @@
 #include <QJsonObject>
 #include <QMessageBox>
 #include <QList>
+#include <QCloseEvent>
 #include "addfriend.h"
 #include "creategroup.h"
 #include "addgroup.h"
-//#include "sendthread.h"
-//#include "recvthread.h"
+#include "sendthread.h"
+#include "recvthread.h"
 
 class GroupChat;
 #include "groupchat.h"
@@ -42,6 +43,7 @@ class Chatlist : public QWidget
 public:
     explicit Chatlist(QTcpSocket *, QString, QString, QString, QWidget *parent = nullptr);
     ~Chatlist();
+    void closeEvent(QCloseEvent *);
 
 private slots:
     void server_reply();
@@ -67,10 +69,10 @@ private:
     void client_chat_reply(QJsonObject &);
     void client_get_group_member_reply(QJsonObject);
     void client_group_chat_reply(QJsonObject);
-//    void client_send_file_reply(QString);
-//    void client_send_file_port_reply(QJsonObject);
-//    void client_recv_file_port_reply(QJsonObject);
-//    void client_friend_offline(QString fri);
+    void client_send_file_reply(QString);
+    void client_send_file_port_reply(QJsonObject);
+    void client_recv_file_port_reply(QJsonObject);
+    void client_friend_offline(QString fri);
 
     Ui::Chatlist *ui;
     QTcpSocket *socket;

@@ -37,6 +37,29 @@ void PrivateChat::on_sendButton_clicked()
     ui->textEdit->append("\n");
 }
 
+// 传输文件按键被点击
+void PrivateChat::on_fileButton_clicked()
+{
+    QString fileName = QFileDialog::getOpenFileName(this, "发送文件", QCoreApplication::applicationFilePath());
+    if (fileName.isEmpty())
+    {
+        QMessageBox::warning(this, "发送文件提示", "请选择一个文件");
+    }
+    else
+    {
+        QFile file(fileName);
+        file.open(QIODevice::ReadOnly);
+        QJsonObject obj;
+        obj.insert("cmd", "send_file");
+        obj.insert("from_user", userName);
+        obj.insert("to_user", friendName);
+        obj.insert("length", file.size());
+        obj.insert("filename", fileName);
+        QByteArray ba = QJsonDocument(obj).toJson();
+        socket->write(ba);
+    }
+}
+
 // 显示双方私聊消息
 void PrivateChat::show_text_slot(QJsonObject obj)
 {

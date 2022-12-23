@@ -5,6 +5,8 @@ debug/creategroup.o
 debug/groupchat.o
 debug/main.o
 debug/privatechat.o
+debug/recvthread.o
+debug/sendthread.o
 debug/widget.o
 debug/moc_addfriend.o
 debug/moc_addgroup.o
@@ -12,4 +14,5 @@ debug/moc_chatlist.o
 debug/moc_creategroup.o
 debug/moc_groupchat.o
 debug/moc_privatechat.o
+debug/moc_recvthread.o
 debug/moc_widget.o

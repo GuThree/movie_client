@@ -31,6 +31,7 @@ public:
 private slots:
     void on_sendButton_clicked();
     void show_text_slot(QJsonObject);
+    void on_fileButton_clicked();
 
 private:
     Ui::PrivateChat *ui;
