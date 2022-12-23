@@ -511,6 +511,7 @@ debug/moc_chatlist.cpp: ../movie_client/chatlist.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdialog.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QList \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/addfriend.h \
 		../movie_client/creategroup.h \
 		../movie_client/addgroup.h \
@@ -522,7 +523,6 @@ debug/moc_chatlist.cpp: ../movie_client/chatlist.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QFile \
 		../movie_client/recvthread.h \
 		../movie_client/groupchat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/chatlist.h \
 		../movie_client/privatechat.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFileDialog \
@@ -1151,6 +1151,7 @@ debug/moc_widget.cpp: ../movie_client/widget.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
 		../movie_client/chatlist.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QList \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/addfriend.h \
 		../movie_client/creategroup.h \
 		../movie_client/addgroup.h \
@@ -1160,7 +1161,6 @@ debug/moc_widget.cpp: ../movie_client/widget.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QFile \
 		../movie_client/recvthread.h \
 		../movie_client/groupchat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/privatechat.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFileDialog \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qfiledialog.h \
@@ -1575,6 +1575,7 @@ debug/chatlist.o: ../movie_client/chatlist.cpp ../movie_client/chatlist.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdialog.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QList \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/addfriend.h \
 		../movie_client/creategroup.h \
 		../movie_client/addgroup.h \
@@ -1586,7 +1587,6 @@ debug/chatlist.o: ../movie_client/chatlist.cpp ../movie_client/chatlist.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QFile \
 		../movie_client/recvthread.h \
 		../movie_client/groupchat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/privatechat.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFileDialog \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qfiledialog.h \
@@ -1980,6 +1980,7 @@ debug/main.o: ../movie_client/main.cpp ../movie_client/widget.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
 		../movie_client/chatlist.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QList \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/addfriend.h \
 		../movie_client/creategroup.h \
 		../movie_client/addgroup.h \
@@ -1989,7 +1990,6 @@ debug/main.o: ../movie_client/main.cpp ../movie_client/widget.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QFile \
 		../movie_client/recvthread.h \
 		../movie_client/groupchat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/privatechat.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFileDialog \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qfiledialog.h \
@@ -2437,6 +2437,7 @@ debug/widget.o: ../movie_client/widget.cpp ../movie_client/widget.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
 		../movie_client/chatlist.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QList \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/addfriend.h \
 		../movie_client/creategroup.h \
 		../movie_client/addgroup.h \
@@ -2446,7 +2447,6 @@ debug/widget.o: ../movie_client/widget.cpp ../movie_client/widget.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QFile \
 		../movie_client/recvthread.h \
 		../movie_client/groupchat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QCloseEvent \
 		../movie_client/privatechat.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFileDialog \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qfiledialog.h \
