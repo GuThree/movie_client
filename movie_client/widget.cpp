@@ -6,6 +6,7 @@ Widget::Widget(QWidget *parent)
     , ui(new Ui::Widget)
 {
     ui->setupUi(this);
+    this->setWindowTitle("登录");
     socket = new QTcpSocket;
     socket->connectToHost(QHostAddress("47.112.153.10"), 8000);
 
@@ -29,30 +30,16 @@ void Widget::server_reply()
     QByteArray ba = socket->readAll();
     QJsonObject obj = QJsonDocument::fromJson(ba).object();
     QString cmd = obj.value("cmd").toString();
-    if (cmd == "register_reply")
-    {
-        client_register_handler(obj.value("result").toString());
-    }
-    else if (cmd == "login_reply")
+    if (cmd == "login_reply")
     {
         client_login_handler(obj.value("result").toString(),
                       obj.value("friend").toString(), obj.value("group").toString());
     }
 }
 
-// 注册按钮被点击
-void Widget::on_registerButton_clicked()
+void Widget::back_page()
 {
-    QString username = ui->userLineEdit->text();
-    QString password = ui->passwdLineEdit->text();
-
-    QJsonObject obj;
-    obj.insert("cmd", "register");
-    obj.insert("user", username);
-    obj.insert("password", password);
-
-    QByteArray ba = QJsonDocument(obj).toJson();
-    socket->write(ba);
+    connect(socket, &QTcpSocket::readyRead, this, &Widget::server_reply);
 }
 
 // 登录按钮被点击
@@ -72,17 +59,16 @@ void Widget::on_loginButton_clicked()
     socket->write(ba);
 }
 
-// 注册后服务器回复处理
-void Widget::client_register_handler(QString res)
+// 去注册按钮被点击
+void Widget::on_registerButton_clicked()
 {
-    if (res == "success")
-    {
-        QMessageBox::information(this, "注册提示", "注册成功");
-    }
-    else if (res == "failure")
-    {
-        QMessageBox::warning(this, "注册提示", "注册失败");
-    }
+    this->hide();
+    socket->disconnect(SIGNAL(readyRead()));
+    Register *registerWidget = new Register(socket, this);
+    registerWidget->setWindowTitle("注册");
+    QDesktopWidget *desktop = QApplication::desktop();
+    registerWidget->move((desktop->width() - registerWidget->width())/ 2, (desktop->height() - registerWidget->height()) /2);
+    registerWidget->show();
 }
 
 // 登录后服务器回复处理

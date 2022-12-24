@@ -7,6 +7,7 @@ SendThread::SendThread(QJsonObject obj)
     fileLength = obj.value("length").toInt();
 }
 
+// 线程启动实现发送文件
 void SendThread::run()
 {
     QTcpSocket sendSocket;

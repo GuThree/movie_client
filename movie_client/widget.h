@@ -10,6 +10,9 @@
 #include <QJsonDocument>
 #include "chatlist.h"
 
+class Register;
+#include "register.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -21,6 +24,7 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+    void back_page();
 
 private slots:
     void connect_success();

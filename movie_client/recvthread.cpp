@@ -11,6 +11,7 @@ RecvThread::RecvThread(QJsonObject obj)
     fileName = strList.at(strList.size() - 1);
 }
 
+// 线程启动实现接收文件
 void RecvThread::run()
 {
     file = new QFile(fileName);

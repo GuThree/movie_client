@@ -153,7 +153,7 @@ void Chatlist::client_add_group_reply(QJsonObject &obj)
     }
 }
 
-// 发送端私聊请求服务器回复
+// 服务器回复发送端私聊请求
 void Chatlist::client_private_chat_reply(QString res)
 {
     if (res == "offline")
@@ -162,7 +162,7 @@ void Chatlist::client_private_chat_reply(QString res)
     }
 }
 
-// 接收端私聊功能服务器回复
+// 服务器回复接收端私聊请求
 void Chatlist::client_chat_reply(QJsonObject &obj)
 {
     int flag = 0;
@@ -196,7 +196,7 @@ void Chatlist::client_get_group_member_reply(QJsonObject obj)
     emit signal_to_sub_widget_member(obj);
 }
 
-// 群聊有消息变动是服务器回复
+// 群聊有消息变动时服务器回复
 void Chatlist::client_group_chat_reply(QJsonObject obj)
 {
     int flag = 0;
@@ -223,6 +223,7 @@ void Chatlist::client_group_chat_reply(QJsonObject obj)
     emit signal_to_sub_widget_group(obj);
 }
 
+// 服务器回复文件发送端传输文件功能异常
 void Chatlist::client_send_file_reply(QString res)
 {
     if (res == "offline")
@@ -235,19 +236,21 @@ void Chatlist::client_send_file_reply(QString res)
     }
 }
 
+// 服务器回复文件发送端可创建线程进行传输
 void Chatlist::client_send_file_port_reply(QJsonObject obj)
 {
     SendThread *mySendthread = new SendThread(obj);
     mySendthread->start();
 }
 
+// 服务器回复文件接收端可创建线程接收对方文件
 void Chatlist::client_recv_file_port_reply(QJsonObject obj)
 {
     RecvThread *myRecvThread = new RecvThread(obj);
     myRecvThread->start();
 }
 
-// 好友线下服务器回复
+// 好友线下时服务器回复
 void Chatlist::client_friend_offline(QString fri)
 {
     QString str = QString("%1下线").arg(fri);
@@ -301,6 +304,7 @@ void Chatlist::on_groupList_double_clicked()
     groupWidgetList.push_back(g);
 }
 
+// 关闭窗口
 void Chatlist::closeEvent(QCloseEvent *event)
 {
     QJsonObject obj;

@@ -24,6 +24,7 @@ SOURCES += \
     main.cpp \
     privatechat.cpp \
     recvthread.cpp \
+    register.cpp \
     sendthread.cpp \
     widget.cpp
 
@@ -35,6 +36,7 @@ HEADERS += \
     groupchat.h \
     privatechat.h \
     recvthread.h \
+    register.h \
     sendthread.h \
     widget.h
 
@@ -45,6 +47,7 @@ FORMS += \
     creategroup.ui \
     groupchat.ui \
     privatechat.ui \
+    register.ui \
     widget.ui
 
 # Default rules for deployment.
