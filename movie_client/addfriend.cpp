@@ -27,7 +27,7 @@ void Addfriend::on_addfriendButton_clicked()
     QString friendName = ui->lineEdit->text();
     QJsonObject obj;
     obj.insert("cmd", "add_friend");
-    obj.insert("user", userName);
+    obj.insert("username", userName);
     obj.insert("friend", friendName);
 
     QByteArray ba = QJsonDocument(obj).toJson();

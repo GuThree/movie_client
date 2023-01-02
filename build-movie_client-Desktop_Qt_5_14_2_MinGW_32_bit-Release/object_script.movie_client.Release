@@ -7,6 +7,7 @@ release/main.o
 release/privatechat.o
 release/recvthread.o
 release/register.o
+release/room.o
 release/sendthread.o
 release/widget.o
 release/moc_addfriend.o
@@ -17,4 +18,5 @@ release/moc_groupchat.o
 release/moc_privatechat.o
 release/moc_recvthread.o
 release/moc_register.o
+release/moc_room.o
 release/moc_widget.o

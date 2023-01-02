@@ -6,9 +6,21 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>315</width>
-    <height>674</height>
+    <width>360</width>
+    <height>750</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>360</width>
+    <height>750</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>360</width>
+    <height>750</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -16,40 +28,76 @@
   <widget class="QPushButton" name="addFriendButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>530</y>
-     <width>291</width>
-     <height>20</height>
+     <x>30</x>
+     <y>680</y>
+     <width>300</width>
+     <height>30</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>300</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>300</width>
+     <height>30</height>
+    </size>
    </property>
    <property name="text">
     <string>添加好友</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="createGroupButton">
+  <widget class="QPushButton" name="createRoomButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>580</y>
-     <width>291</width>
-     <height>20</height>
+     <x>30</x>
+     <y>620</y>
+     <width>300</width>
+     <height>30</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>300</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>300</width>
+     <height>30</height>
+    </size>
+   </property>
    <property name="text">
-    <string>创建群聊</string>
+    <string>创建房间</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="addGroupButton">
+  <widget class="QPushButton" name="enterRoomButton">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>620</y>
-     <width>291</width>
-     <height>20</height>
+     <x>30</x>
+     <y>560</y>
+     <width>300</width>
+     <height>30</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>300</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>300</width>
+     <height>30</height>
+    </size>
+   </property>
    <property name="text">
-    <string>添加群聊</string>
+    <string>进入房间</string>
    </property>
   </widget>
   <widget class="QTabWidget" name="tabWidget">
@@ -57,20 +105,20 @@
     <rect>
      <x>30</x>
      <y>30</y>
-     <width>260</width>
-     <height>460</height>
+     <width>300</width>
+     <height>500</height>
     </rect>
    </property>
    <property name="minimumSize">
     <size>
-     <width>260</width>
-     <height>460</height>
+     <width>300</width>
+     <height>500</height>
     </size>
    </property>
    <property name="maximumSize">
     <size>
-     <width>260</width>
-     <height>460</height>
+     <width>300</width>
+     <height>500</height>
     </size>
    </property>
    <property name="whatsThis">
@@ -94,7 +142,7 @@
    </widget>
    <widget class="QWidget" name="tab_2">
     <attribute name="title">
-     <string>群聊</string>
+     <string>个人空间</string>
     </attribute>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>

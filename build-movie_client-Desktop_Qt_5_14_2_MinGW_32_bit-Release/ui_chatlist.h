@@ -23,8 +23,8 @@ class Ui_Chatlist
 {
 public:
     QPushButton *addFriendButton;
-    QPushButton *createGroupButton;
-    QPushButton *addGroupButton;
+    QPushButton *createRoomButton;
+    QPushButton *addRoomButton;
     QTabWidget *tabWidget;
     QWidget *tab_1;
     QVBoxLayout *verticalLayout;
@@ -37,21 +37,29 @@ public:
     {
         if (Chatlist->objectName().isEmpty())
             Chatlist->setObjectName(QString::fromUtf8("Chatlist"));
-        Chatlist->resize(315, 674);
+        Chatlist->resize(360, 750);
+        Chatlist->setMinimumSize(QSize(360, 750));
+        Chatlist->setMaximumSize(QSize(360, 750));
         addFriendButton = new QPushButton(Chatlist);
         addFriendButton->setObjectName(QString::fromUtf8("addFriendButton"));
-        addFriendButton->setGeometry(QRect(10, 530, 291, 20));
-        createGroupButton = new QPushButton(Chatlist);
-        createGroupButton->setObjectName(QString::fromUtf8("createGroupButton"));
-        createGroupButton->setGeometry(QRect(10, 580, 291, 20));
-        addGroupButton = new QPushButton(Chatlist);
-        addGroupButton->setObjectName(QString::fromUtf8("addGroupButton"));
-        addGroupButton->setGeometry(QRect(10, 620, 291, 20));
+        addFriendButton->setGeometry(QRect(30, 680, 300, 30));
+        addFriendButton->setMinimumSize(QSize(300, 30));
+        addFriendButton->setMaximumSize(QSize(300, 30));
+        createRoomButton = new QPushButton(Chatlist);
+        createRoomButton->setObjectName(QString::fromUtf8("createRoomButton"));
+        createRoomButton->setGeometry(QRect(30, 620, 300, 30));
+        createRoomButton->setMinimumSize(QSize(300, 30));
+        createRoomButton->setMaximumSize(QSize(300, 30));
+        addRoomButton = new QPushButton(Chatlist);
+        addRoomButton->setObjectName(QString::fromUtf8("addRoomButton"));
+        addRoomButton->setGeometry(QRect(30, 560, 300, 30));
+        addRoomButton->setMinimumSize(QSize(300, 30));
+        addRoomButton->setMaximumSize(QSize(300, 30));
         tabWidget = new QTabWidget(Chatlist);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tabWidget->setGeometry(QRect(30, 30, 260, 460));
-        tabWidget->setMinimumSize(QSize(260, 460));
-        tabWidget->setMaximumSize(QSize(260, 460));
+        tabWidget->setGeometry(QRect(30, 30, 300, 500));
+        tabWidget->setMinimumSize(QSize(300, 500));
+        tabWidget->setMaximumSize(QSize(300, 500));
         tabWidget->setStyleSheet(QString::fromUtf8("QTabBar::tab{width:110}"));
         tab_1 = new QWidget();
         tab_1->setObjectName(QString::fromUtf8("tab_1"));
@@ -86,8 +94,8 @@ public:
     {
         Chatlist->setWindowTitle(QCoreApplication::translate("Chatlist", "Form", nullptr));
         addFriendButton->setText(QCoreApplication::translate("Chatlist", "\346\267\273\345\212\240\345\245\275\345\217\213", nullptr));
-        createGroupButton->setText(QCoreApplication::translate("Chatlist", "\345\210\233\345\273\272\347\276\244\350\201\212", nullptr));
-        addGroupButton->setText(QCoreApplication::translate("Chatlist", "\346\267\273\345\212\240\347\276\244\350\201\212", nullptr));
+        createRoomButton->setText(QCoreApplication::translate("Chatlist", "\345\210\233\345\273\272\346\210\277\351\227\264", nullptr));
+        addRoomButton->setText(QCoreApplication::translate("Chatlist", "\350\277\233\345\205\245\346\210\277\351\227\264", nullptr));
 #if QT_CONFIG(whatsthis)
         tabWidget->setWhatsThis(QCoreApplication::translate("Chatlist", "<html><head/><body><p><br/></p></body></html>", nullptr));
 #endif // QT_CONFIG(whatsthis)

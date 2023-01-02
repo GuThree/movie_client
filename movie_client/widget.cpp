@@ -32,8 +32,7 @@ void Widget::server_reply()
     QString cmd = obj.value("cmd").toString();
     if (cmd == "login_reply")
     {
-        client_login_handler(obj.value("result").toString(),
-                      obj.value("friend").toString(), obj.value("group").toString());
+        client_login_handler(obj.value("result").toString(), obj.value("friend").toString());
     }
 }
 
@@ -50,7 +49,7 @@ void Widget::on_loginButton_clicked()
 
     QJsonObject obj;
     obj.insert("cmd", "login");
-    obj.insert("user", username);
+    obj.insert("username", username);
     obj.insert("password", password);
 
     userName = username;
@@ -72,7 +71,7 @@ void Widget::on_registerButton_clicked()
 }
 
 // 登录后服务器回复处理
-void Widget::client_login_handler(QString res, QString fri, QString group)
+void Widget::client_login_handler(QString res, QString fri)
 {
     if (res == "user_not_exist")
     {
@@ -86,7 +85,7 @@ void Widget::client_login_handler(QString res, QString fri, QString group)
     {
         this->hide();
         socket->disconnect(SIGNAL(readyRead()));
-        Chatlist *c = new Chatlist(socket, fri, group, userName);
+        Chatlist *c = new Chatlist(socket, fri, userName);
         c->setWindowTitle(userName);
         c->show();
     }

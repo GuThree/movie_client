@@ -38,7 +38,7 @@ void Register::on_registerButton_clicked()
 
     QJsonObject obj;
     obj.insert("cmd", "register");
-    obj.insert("user", username);
+    obj.insert("username", username);
     obj.insert("nickname", nickname);
     obj.insert("password", password);
 
@@ -49,12 +49,12 @@ void Register::on_registerButton_clicked()
 // 去登录按钮被点击
 void Register::on_loginButton_clicked()
 {
-    this->hide();
     socket->disconnect(SIGNAL(readyRead()));
     widget->back_page();
     QDesktopWidget *desktop = QApplication::desktop();
     widget->move((desktop->width() - widget->width())/ 2, (desktop->height() - widget->height()) /2);
     widget->show();
+    this->close();
 }
 
 // 注册后服务器回复处理

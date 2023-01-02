@@ -17,37 +17,37 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     addfriend.cpp \
-    addgroup.cpp \
     chatlist.cpp \
-    creategroup.cpp \
-    groupchat.cpp \
+    createroom.cpp \
+    enterroom.cpp \
     main.cpp \
     privatechat.cpp \
     recvthread.cpp \
     register.cpp \
+    room.cpp \
     sendthread.cpp \
     widget.cpp
 
 HEADERS += \
     addfriend.h \
-    addgroup.h \
     chatlist.h \
-    creategroup.h \
-    groupchat.h \
+    createroom.h \
+    enterroom.h \
     privatechat.h \
     recvthread.h \
     register.h \
+    room.h \
     sendthread.h \
     widget.h
 
 FORMS += \
     addfriend.ui \
-    addgroup.ui \
     chatlist.ui \
-    creategroup.ui \
-    groupchat.ui \
+    createroom.ui \
+    enterroom.ui \
     privatechat.ui \
     register.ui \
+    room.ui \
     widget.ui
 
 # Default rules for deployment.
