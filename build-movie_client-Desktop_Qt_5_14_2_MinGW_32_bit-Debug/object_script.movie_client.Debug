@@ -1,6 +1,5 @@
 debug/addfriend.o
 debug/chatlist.o
-debug/createroom.o
 debug/enterroom.o
 debug/main.o
 debug/privatechat.o
@@ -11,7 +10,6 @@ debug/sendthread.o
 debug/widget.o
 debug/moc_addfriend.o
 debug/moc_chatlist.o
-debug/moc_createroom.o
 debug/moc_enterroom.o
 debug/moc_privatechat.o
 debug/moc_recvthread.o

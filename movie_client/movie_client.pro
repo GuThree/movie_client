@@ -18,7 +18,6 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     addfriend.cpp \
     chatlist.cpp \
-    createroom.cpp \
     enterroom.cpp \
     main.cpp \
     privatechat.cpp \
@@ -31,7 +30,6 @@ SOURCES += \
 HEADERS += \
     addfriend.h \
     chatlist.h \
-    createroom.h \
     enterroom.h \
     privatechat.h \
     recvthread.h \
@@ -43,7 +41,6 @@ HEADERS += \
 FORMS += \
     addfriend.ui \
     chatlist.ui \
-    createroom.ui \
     enterroom.ui \
     privatechat.ui \
     register.ui \

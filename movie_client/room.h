@@ -30,6 +30,8 @@ private slots:
     void show_room_text(QJsonObject);
     void on_sendButton_clicked();
 
+    void on_leaveButton_clicked();
+
 private:
     Ui::Room *ui;
     QTcpSocket *socket;

@@ -27,6 +27,7 @@ Room::~Room()
     delete ui;
 }
 
+// 发送群聊消息
 void Room::on_sendButton_clicked()
 {
     QString text = ui->lineEdit->text();
@@ -43,13 +44,14 @@ void Room::on_sendButton_clicked()
     ui->textBrowser->append("\n");
 }
 
-// 群聊框出来后展示群成员
+// 展示房间成员
 void Room::show_room_member(QJsonObject obj)
 {
     if (obj.value("cmd").toString() == "get_room_member_reply")
     {
         if (obj.value("roomid").toString() == roomid)
         {
+            ui->listWidget->clear();
             QStringList strList = obj.value("member").toString().split("|");
             for (int i = 0; i < strList.size(); i++)
             {
@@ -59,7 +61,7 @@ void Room::show_room_member(QJsonObject obj)
     }
 }
 
-// 显示群成员发送的消息
+// 显示房间成员发送的消息
 void Room::show_room_text(QJsonObject obj)
 {
     if (obj.value("cmd").toString() == "room_chat")
@@ -77,6 +79,19 @@ void Room::show_room_text(QJsonObject obj)
     }
 }
 
+// 点击退出房间
+void Room::on_leaveButton_clicked()
+{
+    for (int i = 0; i < roomWidgetList->size(); i++)
+    {
+        if (roomWidgetList->at(i).name == roomid)
+        {
+            roomWidgetList->removeAt(i);
+        }
+    }
+    this->close();
+}
+
 // 关闭对话框
 void Room::closeEvent(QCloseEvent * event)
 {
@@ -89,3 +104,5 @@ void Room::closeEvent(QCloseEvent * event)
     }
     event->accept();
 }
+
+

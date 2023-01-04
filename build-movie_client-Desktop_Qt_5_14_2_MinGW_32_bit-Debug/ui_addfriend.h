@@ -31,18 +31,20 @@ public:
         if (Addfriend->objectName().isEmpty())
             Addfriend->setObjectName(QString::fromUtf8("Addfriend"));
         Addfriend->resize(400, 300);
+        Addfriend->setMinimumSize(QSize(400, 300));
+        Addfriend->setMaximumSize(QSize(400, 300));
         label = new QLabel(Addfriend);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(30, 120, 81, 31));
+        label->setGeometry(QRect(50, 100, 70, 30));
         lineEdit = new QLineEdit(Addfriend);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(110, 120, 251, 20));
+        lineEdit->setGeometry(QRect(150, 100, 200, 30));
         addfriendButton = new QPushButton(Addfriend);
         addfriendButton->setObjectName(QString::fromUtf8("addfriendButton"));
-        addfriendButton->setGeometry(QRect(70, 210, 80, 20));
+        addfriendButton->setGeometry(QRect(240, 200, 80, 30));
         cancelButton = new QPushButton(Addfriend);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
-        cancelButton->setGeometry(QRect(220, 210, 80, 20));
+        cancelButton->setGeometry(QRect(80, 200, 80, 30));
 
         retranslateUi(Addfriend);
 
@@ -52,7 +54,7 @@ public:
     void retranslateUi(QWidget *Addfriend)
     {
         Addfriend->setWindowTitle(QCoreApplication::translate("Addfriend", "Form", nullptr));
-        label->setText(QCoreApplication::translate("Addfriend", "<html><head/><body><p align=\"center\">\345\245\275\345\217\213\350\264\246\345\217\267</p></body></html>", nullptr));
+        label->setText(QCoreApplication::translate("Addfriend", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">\345\245\275\345\217\213\350\264\246\345\217\267</span></p></body></html>", nullptr));
         addfriendButton->setText(QCoreApplication::translate("Addfriend", "\346\267\273\345\212\240", nullptr));
         cancelButton->setText(QCoreApplication::translate("Addfriend", "\345\217\226\346\266\210", nullptr));
     } // retranslateUi

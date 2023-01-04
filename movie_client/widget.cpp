@@ -32,7 +32,7 @@ void Widget::server_reply()
     QString cmd = obj.value("cmd").toString();
     if (cmd == "login_reply")
     {
-        client_login_handler(obj.value("result").toString(), obj.value("friend").toString());
+        client_login_handler(obj.value("result").toString(), obj.value("friend_id").toString(), obj.value("friend_nick").toString());
     }
 }
 
@@ -71,7 +71,7 @@ void Widget::on_registerButton_clicked()
 }
 
 // 登录后服务器回复处理
-void Widget::client_login_handler(QString res, QString fri)
+void Widget::client_login_handler(QString res, QString fri_id, QString fri_nick)
 {
     if (res == "user_not_exist")
     {
@@ -85,7 +85,7 @@ void Widget::client_login_handler(QString res, QString fri)
     {
         this->hide();
         socket->disconnect(SIGNAL(readyRead()));
-        Chatlist *c = new Chatlist(socket, fri, userName);
+        Chatlist *c = new Chatlist(socket, fri_id, fri_nick, userName);
         c->setWindowTitle(userName);
         c->show();
     }

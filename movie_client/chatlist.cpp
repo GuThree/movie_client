@@ -1,7 +1,7 @@
 #include "chatlist.h"
 #include "ui_chatlist.h"
 
-Chatlist::Chatlist(QTcpSocket *s, QString fri, QString u, QWidget *parent) :
+Chatlist::Chatlist(QTcpSocket *s, QString fri_id, QString fri_nick, QString u, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Chatlist)
 {
@@ -11,12 +11,14 @@ Chatlist::Chatlist(QTcpSocket *s, QString fri, QString u, QWidget *parent) :
     connect(socket, &QTcpSocket::readyRead, this, &Chatlist::server_reply);
 
     // 陈列用户的好友和群聊内容
-    QStringList friList = fri.split('|');
-    for (int i = 0; i < friList.size(); i++)
+    QStringList f_id = fri_id.split('|');
+    QStringList f_nick = fri_nick.split('|');
+    for (int i = 0; i < f_id.size(); i++)
     {
-        if (friList.at(i) != "")
+        if (f_id.at(i) != "")
         {
-            ui->friendList->addItem(friList.at(i));
+            friendlist[f_id.at(i)] = f_nick.at(i);
+            ui->friendList->addItem(f_nick.at(i));
         }
     }
 
@@ -56,7 +58,7 @@ void Chatlist::server_reply(){
     {
         QString str = QString("%1把你添加为好友").arg(obj.value("result").toString());
         QMessageBox::information(this, "添加好友提醒", str);
-        ui->friendList->addItem(obj.value("result").toString());
+        ui->friendList->addItem(obj.value("nickname").toString());
     }
     else if (cmd == "create_room_reply")
     {
@@ -94,10 +96,6 @@ void Chatlist::server_reply(){
     {
         client_recv_file_port_reply(obj);
     }
-    else if (cmd == "friend_offline")
-    {
-        client_friend_offline(obj.value("friend").toString());
-    }
 }
 
 // 好友登录服务器提醒用户
@@ -128,7 +126,7 @@ void Chatlist::client_add_friend_reply(QJsonObject &obj)
     else if (obj.value("result").toString() == "success")
     {
         QMessageBox::information(this, "添加好友提醒", "好友添加成功");
-        ui->friendList->addItem(obj.value("friend").toString());
+        ui->friendList->addItem(obj.value("friend_nick").toString());
     }
 }
 
@@ -137,12 +135,27 @@ void Chatlist::client_create_room_reply(QJsonObject &obj)
 {
     if (obj.value("result").toString() == "room_exist")
     {
-        QMessageBox::warning(this, "创建房间提示", "房间已经存在");
+        QString roomid;
+        char c;
+        for(int i = 0; i < 6; i++)
+        {
+            if (rand()%2)
+                c = '0' + rand()%9;
+            else
+                c = 'a' + rand()%26;
+            roomid.push_back(c);
+        }
+        QJsonObject obj;
+        obj.insert("cmd", "create_room");
+        obj.insert("username", userName);
+        obj.insert("roomid", roomid);
+        QByteArray ba = QJsonDocument(obj).toJson();
+        socket->write(ba);
     }
     else if (obj.value("result").toString() == "success")
     {
-        QMessageBox::warning(this, "创建房间提示", "创建成功");
         Room *room = new Room(socket, obj.value("roomid").toString(), userName, this, &roomWidgetList);
+        room->setWindowTitle("房间号:"+obj.value("roomid").toString());
         room->show();
         RoomWidgetInfo rr = {room, obj.value("roomid").toString()};
         roomWidgetList.push_back(rr);
@@ -159,6 +172,22 @@ void Chatlist::client_enter_room_reply(QJsonObject &obj)
     else if (obj.value("result").toString() == "user_in_room")
     {
         QMessageBox::warning(this, "添加房间提示", "已经在房间里面");
+    }
+    else if (obj.value("result").toString() == "success")
+    {
+        Room *room = new Room(socket, obj.value("roomid").toString(), userName, this, &roomWidgetList);
+        room->setWindowTitle("房间号:"+obj.value("roomid").toString());
+        room->show();
+        RoomWidgetInfo rr = {room, obj.value("roomid").toString()};
+        roomWidgetList.push_back(rr);
+    }
+    else if (obj.value("result").toString() == "someone_in")
+    {
+        QJsonObject o;
+        o.insert("cmd", "get_room_member");
+        o.insert("roomid", obj.value("roomid").toString());
+        QByteArray ba = QJsonDocument(o).toJson();
+        socket->write(ba);
     }
 }
 
@@ -208,27 +237,6 @@ void Chatlist::client_get_room_member_reply(QJsonObject obj)
 // 群聊有消息变动时服务器回复
 void Chatlist::client_room_chat_reply(QJsonObject obj)
 {
-    int flag = 0;
-    for (int i = 0; i < roomWidgetList.size(); i++)
-    {
-        if (roomWidgetList.at(i).name == obj.value("roomid").toString())
-        {
-            flag = 1;
-            break;
-        }
-    }
-
-    if(flag == 0)
-    {
-        QString roomid = obj.value("roomid").toString();
-        Room *roomChatWidget = new Room(socket, roomid, userName, this, &roomWidgetList);
-        roomChatWidget->setWindowTitle(roomid);
-        roomChatWidget->show();
-
-        RoomWidgetInfo r = {roomChatWidget, roomid};
-        roomWidgetList.push_back(r);
-    }
-
     emit signal_to_sub_widget_room(obj);
 }
 
@@ -259,13 +267,6 @@ void Chatlist::client_recv_file_port_reply(QJsonObject obj)
     myRecvThread->start();
 }
 
-// 好友线下时服务器回复
-void Chatlist::client_friend_offline(QString fri)
-{
-    QString str = QString("%1下线").arg(fri);
-}
-
-
 
 /*-----下面是点击事件处理-----*/
 // 添加好友按键被点击
@@ -278,8 +279,22 @@ void Chatlist::on_addFriendButton_clicked()
 // 创建房间按键被点击
 void Chatlist::on_createRoomButton_clicked()
 {
-    CreateRoom *createRoomWidget = new CreateRoom(socket, userName);
-    createRoomWidget->show();
+    QString roomid;
+    char c;
+    for(int i = 0; i < 6; i++)
+    {
+        if (rand()%2)
+            c = '0' + rand()%9;
+        else
+            c = 'a' + rand()%26;
+        roomid.push_back(c);
+    }
+    QJsonObject obj;
+    obj.insert("cmd", "create_room");
+    obj.insert("username", userName);
+    obj.insert("roomid", roomid);
+    QByteArray ba = QJsonDocument(obj).toJson();
+    socket->write(ba);
 }
 
 // 进入房间按键被点击
@@ -306,7 +321,7 @@ void Chatlist::closeEvent(QCloseEvent *event)
 {
     QJsonObject obj;
     obj.insert("cmd", "offline");
-    obj.insert("user", userName);
+    obj.insert("username", userName);
     QByteArray ba = QJsonDocument(obj).toJson();
     socket->write(ba);
     socket->flush();

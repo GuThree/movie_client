@@ -8,11 +8,12 @@
 #include <QMessageBox>
 #include <QList>
 #include <QCloseEvent>
+#include <QHash>
 #include "addfriend.h"
-#include "createroom.h"
 #include "enterroom.h"
 #include "sendthread.h"
 #include "recvthread.h"
+
 
 class Room;
 #include "room.h"
@@ -41,7 +42,7 @@ class Chatlist : public QWidget
     Q_OBJECT
 
 public:
-    explicit Chatlist(QTcpSocket *, QString, QString, QWidget *parent = nullptr);
+    explicit Chatlist(QTcpSocket *, QString, QString, QString, QWidget *parent = nullptr);
     ~Chatlist();
     void closeEvent(QCloseEvent *);
 
@@ -70,12 +71,12 @@ private:
     void client_send_file_reply(QString);
     void client_send_file_port_reply(QJsonObject);
     void client_recv_file_port_reply(QJsonObject);
-    void client_friend_offline(QString fri);
 
     Ui::Chatlist *ui;
     QTcpSocket *socket;
     QString userName;
     QString nickName;
+    QHash<QString, QString> friendlist;
     QList<ChatWidgetInfo> chatWidgetList;           // 现有打开的所有好友聊天窗口信息
     QList<RoomWidgetInfo> roomWidgetList;         // 现有打开的所有群组聊天窗口信息
 };
