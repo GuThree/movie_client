@@ -1,7 +1,7 @@
 #include "room.h"
 #include "ui_room.h"
 
-Room::Room(QTcpSocket *s, QString r, QString u, Chatlist *c, QList<RoomWidgetInfo> *l, QWidget *parent) :
+Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QList<RoomWidgetInfo> *l, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Room)
 {
@@ -9,6 +9,7 @@ Room::Room(QTcpSocket *s, QString r, QString u, Chatlist *c, QList<RoomWidgetInf
     socket = s;
     roomid = r;
     userName = u;
+    nickName = n;
     mainWidget = c;
     roomWidgetList = l;
 
@@ -31,16 +32,20 @@ Room::~Room()
 void Room::on_sendButton_clicked()
 {
     QString text = ui->lineEdit->text();
+    if (text == "")
+        return;
+
     QJsonObject obj;
     obj.insert("cmd", "room_chat");
     obj.insert("username", userName);
+    obj.insert("nickname", nickName);
     obj.insert("roomid", roomid);
     obj.insert("text", text);
     QByteArray ba = QJsonDocument(obj).toJson();
     socket->write(ba);
 
     ui->lineEdit->clear();
-    ui->textBrowser->append(text);
+    ui->textBrowser->append(nickName+":"+text);
     ui->textBrowser->append("\n");
 }
 
@@ -73,7 +78,7 @@ void Room::show_room_text(QJsonObject obj)
                 this->showNormal();
             }
             this->activateWindow();
-            ui->textBrowser->append(obj.value("text").toString());
+            ui->textBrowser->append(obj.value("nickname").toString()+":"+obj.value("text").toString());
             ui->textBrowser->append("\n");
         }
     }
@@ -82,6 +87,14 @@ void Room::show_room_text(QJsonObject obj)
 // 点击退出房间
 void Room::on_leaveButton_clicked()
 {
+    QJsonObject obj;
+    obj.insert("cmd", "leave_room");
+    obj.insert("username", userName);
+    obj.insert("nickname", nickName);
+    obj.insert("roomid", roomid);
+    QByteArray ba = QJsonDocument(obj).toJson();
+    socket->write(ba);
+
     for (int i = 0; i < roomWidgetList->size(); i++)
     {
         if (roomWidgetList->at(i).name == roomid)
@@ -95,6 +108,14 @@ void Room::on_leaveButton_clicked()
 // 关闭对话框
 void Room::closeEvent(QCloseEvent * event)
 {
+    QJsonObject obj;
+    obj.insert("cmd", "leave_room");
+    obj.insert("username", userName);
+    obj.insert("nickname", nickName);
+    obj.insert("roomid", roomid);
+    QByteArray ba = QJsonDocument(obj).toJson();
+    socket->write(ba);
+
     for (int i = 0; i < roomWidgetList->size(); i++)
     {
         if (roomWidgetList->at(i).name == roomid)

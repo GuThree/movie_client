@@ -68,6 +68,10 @@ void Chatlist::server_reply(){
     {
         client_enter_room_reply(obj);
     }
+    else if (cmd == "leave_room_reply")
+    {
+        client_leave_room_reply(obj);
+    }
     else if (cmd == "private_chat_reply")
     {
         client_private_chat_reply(obj.value("result").toString());
@@ -154,15 +158,15 @@ void Chatlist::client_create_room_reply(QJsonObject &obj)
     }
     else if (obj.value("result").toString() == "success")
     {
-        Room *room = new Room(socket, obj.value("roomid").toString(), userName, this, &roomWidgetList);
-        room->setWindowTitle("房间号:"+obj.value("roomid").toString());
+        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, &roomWidgetList);
+        room->setWindowTitle("("+nickName+") "+"房间号:"+obj.value("roomid").toString());
         room->show();
         RoomWidgetInfo rr = {room, obj.value("roomid").toString()};
         roomWidgetList.push_back(rr);
     }
 }
 
-// 添加群聊后服务器回复
+// 进入房间后服务器回复
 void Chatlist::client_enter_room_reply(QJsonObject &obj)
 {
     if (obj.value("result").toString() == "room_not_exist")
@@ -175,13 +179,26 @@ void Chatlist::client_enter_room_reply(QJsonObject &obj)
     }
     else if (obj.value("result").toString() == "success")
     {
-        Room *room = new Room(socket, obj.value("roomid").toString(), userName, this, &roomWidgetList);
-        room->setWindowTitle("房间号:"+obj.value("roomid").toString());
+        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, &roomWidgetList);
+        room->setWindowTitle("("+nickName+") "+"房间号:"+obj.value("roomid").toString());
         room->show();
         RoomWidgetInfo rr = {room, obj.value("roomid").toString()};
         roomWidgetList.push_back(rr);
     }
     else if (obj.value("result").toString() == "someone_in")
+    {
+        QJsonObject o;
+        o.insert("cmd", "get_room_member");
+        o.insert("roomid", obj.value("roomid").toString());
+        QByteArray ba = QJsonDocument(o).toJson();
+        socket->write(ba);
+    }
+}
+
+// 离开房间后服务器回复
+void Chatlist::client_leave_room_reply(QJsonObject &obj)
+{
+    if (obj.value("result").toString() == "success")
     {
         QJsonObject o;
         o.insert("cmd", "get_room_member");

@@ -64,6 +64,7 @@ private:
     void client_add_friend_reply(QJsonObject &obj);
     void client_create_room_reply(QJsonObject &obj);
     void client_enter_room_reply(QJsonObject &obj);
+    void client_leave_room_reply(QJsonObject &obj);
     void client_private_chat_reply(QString);
     void client_chat_reply(QJsonObject &);
     void client_get_room_member_reply(QJsonObject);
