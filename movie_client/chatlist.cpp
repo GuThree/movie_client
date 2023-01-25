@@ -68,6 +68,10 @@ void Chatlist::server_reply(){
     {
         client_enter_room_reply(obj);
     }
+    else if (cmd == "invite_reply")
+    {
+        client_invite_room_reply(obj);
+    }
     else if (cmd == "leave_room_reply")
     {
         client_leave_room_reply(obj);
@@ -158,7 +162,7 @@ void Chatlist::client_create_room_reply(QJsonObject &obj)
     }
     else if (obj.value("result").toString() == "success")
     {
-        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, &roomWidgetList);
+        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, friendlist, &roomWidgetList);
         room->setWindowTitle("("+nickName+") "+"房间号:"+obj.value("roomid").toString());
         room->show();
         RoomWidgetInfo rr = {room, obj.value("roomid").toString()};
@@ -179,7 +183,7 @@ void Chatlist::client_enter_room_reply(QJsonObject &obj)
     }
     else if (obj.value("result").toString() == "success")
     {
-        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, &roomWidgetList);
+        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, friendlist, &roomWidgetList);
         room->setWindowTitle("("+nickName+") "+"房间号:"+obj.value("roomid").toString());
         room->show();
         RoomWidgetInfo rr = {room, obj.value("roomid").toString()};
@@ -192,6 +196,18 @@ void Chatlist::client_enter_room_reply(QJsonObject &obj)
         o.insert("roomid", obj.value("roomid").toString());
         QByteArray ba = QJsonDocument(o).toJson();
         socket->write(ba);
+    }
+}
+
+// 邀请好友服务器回复
+void Chatlist::client_invite_room_reply(QJsonObject &obj)
+{
+    qDebug() << "$$$$";
+    if (obj.value("result").toString() == "success")
+    {
+        Invited *invited = new Invited(socket, obj.value("roomid").toString(), userName, nickName, obj.value("inviter").toString());
+        invited->setWindowTitle("收到好友邀请");
+        invited->show();
     }
 }
 
@@ -290,6 +306,7 @@ void Chatlist::client_recv_file_port_reply(QJsonObject obj)
 void Chatlist::on_addFriendButton_clicked()
 {
     Addfriend *addFriendWidget = new Addfriend(socket, userName);
+    addFriendWidget->setWindowTitle("添加好友");
     addFriendWidget->show();
 }
 
@@ -318,6 +335,7 @@ void Chatlist::on_createRoomButton_clicked()
 void Chatlist::on_enterRoomButton_clicked()
 {
     EnterRoom *enterRoomWidget = new EnterRoom(socket, userName, nickName);
+    enterRoomWidget->setWindowTitle("进入房间");
     enterRoomWidget->show();
 }
 
@@ -342,6 +360,16 @@ void Chatlist::closeEvent(QCloseEvent *event)
     QByteArray ba = QJsonDocument(obj).toJson();
     socket->write(ba);
     socket->flush();
+
+    // 关闭所有房间窗口和对话窗口
+    while(roomWidgetList.size() > 0)
+    {
+        roomWidgetList.at(0).w->close();
+    }
+    while(chatWidgetList.size() > 0)
+    {
+        chatWidgetList.at(0).w->close();
+    }
 
     event->accept();
 }

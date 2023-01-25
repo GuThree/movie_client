@@ -1,6 +1,8 @@
 debug/addfriend.o
 debug/chatlist.o
 debug/enterroom.o
+debug/invite.o
+debug/invited.o
 debug/main.o
 debug/privatechat.o
 debug/recvthread.o
@@ -11,6 +13,8 @@ debug/widget.o
 debug/moc_addfriend.o
 debug/moc_chatlist.o
 debug/moc_enterroom.o
+debug/moc_invite.o
+debug/moc_invited.o
 debug/moc_privatechat.o
 debug/moc_recvthread.o
 debug/moc_register.o

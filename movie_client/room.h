@@ -7,6 +7,8 @@
 #include <QJsonDocument>
 #include <QList>
 #include <QCloseEvent>
+#include <QHash>
+#include "invite.h"
 
 class Chatlist;
 struct RoomWidgetInfo;
@@ -21,7 +23,7 @@ class Room : public QWidget
     Q_OBJECT
 
 public:
-    explicit Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QList<RoomWidgetInfo> *l, QWidget *parent = nullptr);
+    explicit Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QString, QString> f, QList<RoomWidgetInfo> *l, QWidget *parent = nullptr);
     ~Room();
     void closeEvent(QCloseEvent *);
 
@@ -31,12 +33,15 @@ private slots:
     void on_sendButton_clicked();
     void on_leaveButton_clicked();
 
+    void on_inviteButton_clicked();
+
 private:
     Ui::Room *ui;
     QTcpSocket *socket;
     QString userName;
     QString nickName;
     QString roomid;
+    QHash<QString, QString> friendlist;
     Chatlist *mainWidget;
     QList<RoomWidgetInfo> *roomWidgetList;
 };

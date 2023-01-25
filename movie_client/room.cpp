@@ -1,7 +1,7 @@
 #include "room.h"
 #include "ui_room.h"
 
-Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QList<RoomWidgetInfo> *l, QWidget *parent) :
+Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QString, QString> f, QList<RoomWidgetInfo> *l, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Room)
 {
@@ -10,6 +10,7 @@ Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QList<Ro
     roomid = r;
     userName = u;
     nickName = n;
+    friendlist = f;
     mainWidget = c;
     roomWidgetList = l;
 
@@ -105,6 +106,15 @@ void Room::on_leaveButton_clicked()
     this->close();
 }
 
+// 点击邀请好友
+void Room::on_inviteButton_clicked()
+{
+    Invite *invite = new Invite(socket, roomid, userName, nickName, friendlist);
+    invite->setWindowTitle("邀请好友");
+    invite->show();
+}
+
+
 // 关闭对话框
 void Room::closeEvent(QCloseEvent * event)
 {
@@ -125,5 +135,6 @@ void Room::closeEvent(QCloseEvent * event)
     }
     event->accept();
 }
+
 
 

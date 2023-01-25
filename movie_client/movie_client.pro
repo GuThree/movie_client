@@ -19,6 +19,8 @@ SOURCES += \
     addfriend.cpp \
     chatlist.cpp \
     enterroom.cpp \
+    invite.cpp \
+    invited.cpp \
     main.cpp \
     privatechat.cpp \
     recvthread.cpp \
@@ -31,6 +33,8 @@ HEADERS += \
     addfriend.h \
     chatlist.h \
     enterroom.h \
+    invite.h \
+    invited.h \
     privatechat.h \
     recvthread.h \
     register.h \
@@ -42,6 +46,8 @@ FORMS += \
     addfriend.ui \
     chatlist.ui \
     enterroom.ui \
+    invite.ui \
+    invited.ui \
     privatechat.ui \
     register.ui \
     room.ui \
