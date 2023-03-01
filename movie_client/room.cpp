@@ -114,6 +114,11 @@ void Room::on_inviteButton_clicked()
     invite->show();
 }
 
+// 重置好友列表
+void Room::reset_friends(QHash<QString, QString> f)
+{
+    friendlist = f;
+}
 
 // 关闭对话框
 void Room::closeEvent(QCloseEvent * event)

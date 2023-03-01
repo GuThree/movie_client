@@ -58,7 +58,12 @@ void Chatlist::server_reply(){
     {
         QString str = QString("%1把你添加为好友").arg(obj.value("result").toString());
         QMessageBox::information(this, "添加好友提醒", str);
+        friendlist[obj.value("result").toString()] = obj.value("nickname").toString();
         ui->friendList->addItem(obj.value("nickname").toString());
+        for (int i = 0; i < roomWidgetList.size(); i++)
+        {
+            roomWidgetList.at(i).w->reset_friends(friendlist);
+        }
     }
     else if (cmd == "create_room_reply")
     {
@@ -134,7 +139,12 @@ void Chatlist::client_add_friend_reply(QJsonObject &obj)
     else if (obj.value("result").toString() == "success")
     {
         QMessageBox::information(this, "添加好友提醒", "好友添加成功");
+        friendlist[obj.value("friend_id").toString()] = obj.value("friend_nick").toString();
         ui->friendList->addItem(obj.value("friend_nick").toString());
+        for (int i = 0; i < roomWidgetList.size(); i++)
+        {
+            roomWidgetList.at(i).w->reset_friends(friendlist);
+        }
     }
 }
 
@@ -202,7 +212,6 @@ void Chatlist::client_enter_room_reply(QJsonObject &obj)
 // 邀请好友服务器回复
 void Chatlist::client_invite_room_reply(QJsonObject &obj)
 {
-    qDebug() << "$$$$";
     if (obj.value("result").toString() == "success")
     {
         Invited *invited = new Invited(socket, obj.value("roomid").toString(), userName, nickName, obj.value("inviter").toString());

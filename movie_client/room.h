@@ -25,6 +25,7 @@ class Room : public QWidget
 public:
     explicit Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QString, QString> f, QList<RoomWidgetInfo> *l, QWidget *parent = nullptr);
     ~Room();
+    void reset_friends(QHash<QString, QString>);
     void closeEvent(QCloseEvent *);
 
 private slots:
