@@ -1,11 +1,13 @@
 #include "room.h"
 #include "ui_room.h"
 
-Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QString, QString> f, QList<RoomWidgetInfo> *l, QWidget *parent) :
+Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QString, QString> f,
+           QList<RoomWidgetInfo> *l, bool o, QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Room)
 {
     ui->setupUi(this);
+    is_owner = o;
     socket = s;
     roomid = r;
     userName = u;
@@ -142,4 +144,9 @@ void Room::closeEvent(QCloseEvent * event)
 }
 
 
-
+void Room::on_videoButton_clicked()
+{
+    QString name = QFileDialog::getOpenFileName(this, "选择视频", QCoreApplication::applicationFilePath());
+    PushThread *pushthread = new PushThread(name);
+    pushthread->start();
+}

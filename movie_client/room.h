@@ -8,7 +8,10 @@
 #include <QList>
 #include <QCloseEvent>
 #include <QHash>
+#include <QFile>
+#include <QCoreApplication>
 #include "invite.h"
+#include "pushthread.h"
 
 class Chatlist;
 struct RoomWidgetInfo;
@@ -23,7 +26,8 @@ class Room : public QWidget
     Q_OBJECT
 
 public:
-    explicit Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QString, QString> f, QList<RoomWidgetInfo> *l, QWidget *parent = nullptr);
+    explicit Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QString, QString> f,
+                  QList<RoomWidgetInfo> *l, bool o = false, QWidget *parent = nullptr);
     ~Room();
     void reset_friends(QHash<QString, QString>);
     void closeEvent(QCloseEvent *);
@@ -36,8 +40,11 @@ private slots:
 
     void on_inviteButton_clicked();
 
+    void on_videoButton_clicked();
+
 private:
     Ui::Room *ui;
+    bool is_owner;
     QTcpSocket *socket;
     QString userName;
     QString nickName;

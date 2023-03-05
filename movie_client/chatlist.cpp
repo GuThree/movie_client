@@ -172,7 +172,7 @@ void Chatlist::client_create_room_reply(QJsonObject &obj)
     }
     else if (obj.value("result").toString() == "success")
     {
-        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, friendlist, &roomWidgetList);
+        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, friendlist, &roomWidgetList, true);
         room->setWindowTitle("("+nickName+") "+"房间号:"+obj.value("roomid").toString());
         room->show();
         RoomWidgetInfo rr = {room, obj.value("roomid").toString()};
@@ -193,7 +193,7 @@ void Chatlist::client_enter_room_reply(QJsonObject &obj)
     }
     else if (obj.value("result").toString() == "success")
     {
-        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, friendlist, &roomWidgetList);
+        Room *room = new Room(socket, obj.value("roomid").toString(), userName, nickName, this, friendlist, &roomWidgetList, false);
         room->setWindowTitle("("+nickName+") "+"房间号:"+obj.value("roomid").toString());
         room->show();
         RoomWidgetInfo rr = {room, obj.value("roomid").toString()};

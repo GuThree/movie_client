@@ -23,6 +23,7 @@ SOURCES += \
     invited.cpp \
     main.cpp \
     privatechat.cpp \
+    pushthread.cpp \
     recvthread.cpp \
     register.cpp \
     room.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     invite.h \
     invited.h \
     privatechat.h \
+    pushthread.h \
     recvthread.h \
     register.h \
     room.h \
@@ -52,6 +54,17 @@ FORMS += \
     register.ui \
     room.ui \
     widget.ui
+
+INCLUDEPATH +=$$PWD/include
+
+LIBS += $$PWD/lib/avdevice.lib \
+        $$PWD/lib/avfilter.lib\
+        $$PWD/lib/avformat.lib\
+        $$PWD/lib/avutil.lib\
+        $$PWD/lib/avcodec.lib\
+        $$PWD/lib/postproc.lib\
+        $$PWD/lib/swresample.lib\
+        $$PWD/lib/swscale.lib
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
