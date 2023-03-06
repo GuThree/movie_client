@@ -12,6 +12,7 @@
 #include <QCoreApplication>
 #include "invite.h"
 #include "pushthread.h"
+#include "kick.h"
 
 class Chatlist;
 struct RoomWidgetInfo;
@@ -35,16 +36,18 @@ public:
 private slots:
     void show_room_member(QJsonObject);
     void show_room_text(QJsonObject);
+    void deal_with_memberid(QJsonObject);
     void on_sendButton_clicked();
     void on_leaveButton_clicked();
-
     void on_inviteButton_clicked();
-
     void on_videoButton_clicked();
+
+    void on_kickButton_clicked();
 
 private:
     Ui::Room *ui;
     bool is_owner;
+    bool is_kickClicked;
     QTcpSocket *socket;
     QString userName;
     QString nickName;
@@ -52,6 +55,8 @@ private:
     QHash<QString, QString> friendlist;
     Chatlist *mainWidget;
     QList<RoomWidgetInfo> *roomWidgetList;
+    QStringList memberListId;
+    QStringList memberListNick;
 };
 
 #endif // ROOM_H

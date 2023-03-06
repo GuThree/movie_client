@@ -3,6 +3,7 @@ release/chatlist.o
 release/enterroom.o
 release/invite.o
 release/invited.o
+release/kick.o
 release/main.o
 release/privatechat.o
 release/pushthread.o
@@ -16,6 +17,7 @@ release/moc_chatlist.o
 release/moc_enterroom.o
 release/moc_invite.o
 release/moc_invited.o
+release/moc_kick.o
 release/moc_privatechat.o
 release/moc_recvthread.o
 release/moc_register.o

@@ -21,6 +21,7 @@ SOURCES += \
     enterroom.cpp \
     invite.cpp \
     invited.cpp \
+    kick.cpp \
     main.cpp \
     privatechat.cpp \
     pushthread.cpp \
@@ -36,6 +37,7 @@ HEADERS += \
     enterroom.h \
     invite.h \
     invited.h \
+    kick.h \
     privatechat.h \
     pushthread.h \
     recvthread.h \
@@ -50,6 +52,7 @@ FORMS += \
     enterroom.ui \
     invite.ui \
     invited.ui \
+    kick.ui \
     privatechat.ui \
     register.ui \
     room.ui \

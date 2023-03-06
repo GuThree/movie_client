@@ -3,6 +3,7 @@ debug/chatlist.o
 debug/enterroom.o
 debug/invite.o
 debug/invited.o
+debug/kick.o
 debug/main.o
 debug/privatechat.o
 debug/pushthread.o
@@ -16,6 +17,7 @@ debug/moc_chatlist.o
 debug/moc_enterroom.o
 debug/moc_invite.o
 debug/moc_invited.o
+debug/moc_kick.o
 debug/moc_privatechat.o
 debug/moc_recvthread.o
 debug/moc_register.o

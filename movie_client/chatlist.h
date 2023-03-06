@@ -57,6 +57,7 @@ private slots:
 signals:
     void signal_to_sub_widget(QJsonObject);
     void signal_to_sub_widget_member(QJsonObject);
+    void signal_to_sub_widget_member_id(QJsonObject);
     void signal_to_sub_widget_room(QJsonObject);
 
 private:
@@ -69,8 +70,10 @@ private:
     void client_leave_room_reply(QJsonObject &obj);
     void client_private_chat_reply(QString);
     void client_chat_reply(QJsonObject &);
+    void client_get_room_member_id_reply(QJsonObject);
     void client_get_room_member_reply(QJsonObject);
     void client_room_chat_reply(QJsonObject);
+    void client_kick_member_reply(QJsonObject);
     void client_send_file_reply(QString);
     void client_send_file_port_reply(QJsonObject);
     void client_recv_file_port_reply(QJsonObject);

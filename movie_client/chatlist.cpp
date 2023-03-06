@@ -89,6 +89,10 @@ void Chatlist::server_reply(){
     {
         client_chat_reply(obj);
     }
+    else if (cmd == "get_room_member_id_reply")
+    {
+        client_get_room_member_id_reply(obj);
+    }
     else if (cmd == "get_room_member_reply")
     {
         client_get_room_member_reply(obj);
@@ -96,6 +100,10 @@ void Chatlist::server_reply(){
     else if (cmd == "room_chat")
     {
         client_room_chat_reply(obj);
+    }
+    else if (cmd == "kick_reply")
+    {
+        client_kick_member_reply(obj);
     }
     else if (cmd == "send_file_reply")
     {
@@ -270,6 +278,12 @@ void Chatlist::client_chat_reply(QJsonObject &obj)
     emit signal_to_sub_widget(obj);
 }
 
+// 服务器回应获取房间成员ID
+void Chatlist::client_get_room_member_id_reply(QJsonObject obj)
+{
+    emit signal_to_sub_widget_member_id(obj);
+}
+
 // 服务器回应获取房间成员
 void Chatlist::client_get_room_member_reply(QJsonObject obj)
 {
@@ -280,6 +294,21 @@ void Chatlist::client_get_room_member_reply(QJsonObject obj)
 void Chatlist::client_room_chat_reply(QJsonObject obj)
 {
     emit signal_to_sub_widget_room(obj);
+}
+
+void Chatlist::client_kick_member_reply(QJsonObject obj)
+{
+    if (obj.value("result").toString() == "success")
+    {
+        for (int i = 0; i < roomWidgetList.size(); i++)
+        {
+            if (roomWidgetList.at(i).name == obj.value("roomid").toString())
+            {
+                roomWidgetList.at(i).w->close();
+                break;
+            }
+        }
+    }
 }
 
 // 服务器回复文件发送端传输文件功能异常

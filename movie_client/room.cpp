@@ -15,6 +15,7 @@ Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QS
     friendlist = f;
     mainWidget = c;
     roomWidgetList = l;
+    is_kickClicked = false;
 
     QJsonObject obj;
     obj.insert("cmd", "get_room_member");
@@ -23,6 +24,7 @@ Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QS
     socket->write(ba);
 
     connect(mainWidget, &Chatlist::signal_to_sub_widget_member, this, &Room::show_room_member);
+    connect(mainWidget, &Chatlist::signal_to_sub_widget_member_id, this, &Room::deal_with_memberid); //
     connect(mainWidget, &Chatlist::signal_to_sub_widget_room, this, &Room::show_room_text);
 }
 
@@ -60,13 +62,19 @@ void Room::show_room_member(QJsonObject obj)
         if (obj.value("roomid").toString() == roomid)
         {
             ui->listWidget->clear();
-            QStringList strList = obj.value("member").toString().split("|");
-            for (int i = 0; i < strList.size(); i++)
+            memberListNick = obj.value("member").toString().split("|");
+            for (int i = 0; i < memberListNick.size(); i++)
             {
-                ui->listWidget->addItem(strList.at(i));
+                ui->listWidget->addItem(memberListNick.at(i));
             }
         }
     }
+
+    QJsonObject obj1;
+    obj1.insert("cmd", "get_room_member_id");
+    obj1.insert("roomid", roomid);
+    QByteArray ba = QJsonDocument(obj1).toJson();
+    socket->write(ba);
 }
 
 // 显示房间成员发送的消息
@@ -84,6 +92,26 @@ void Room::show_room_text(QJsonObject obj)
             ui->textBrowser->append(obj.value("nickname").toString()+":"+obj.value("text").toString());
             ui->textBrowser->append("\n");
         }
+    }
+}
+
+void Room::deal_with_memberid(QJsonObject obj)
+{
+    if (obj.value("cmd").toString() == "get_room_member_id_reply")
+    {
+        if (obj.value("roomid").toString() == roomid)
+        {
+            memberListId = obj.value("memberid").toString().split("|");
+        }
+    }
+
+    if (is_kickClicked)
+    {
+        Kick *kick = new Kick(socket, roomid, memberListId, memberListNick);
+        kick->setWindowTitle("踢出成员");
+        kick->show();
+
+        is_kickClicked = false;
     }
 }
 
@@ -138,6 +166,7 @@ void Room::closeEvent(QCloseEvent * event)
         if (roomWidgetList->at(i).name == roomid)
         {
             roomWidgetList->removeAt(i);
+            break;
         }
     }
     event->accept();
@@ -149,4 +178,15 @@ void Room::on_videoButton_clicked()
     QString name = QFileDialog::getOpenFileName(this, "选择视频", QCoreApplication::applicationFilePath());
     PushThread *pushthread = new PushThread(name);
     pushthread->start();
+}
+
+void Room::on_kickButton_clicked()
+{
+    QJsonObject obj;
+    obj.insert("cmd", "get_room_member");
+    obj.insert("roomid", roomid);
+    QByteArray ba = QJsonDocument(obj).toJson();
+    socket->write(ba);
+
+    is_kickClicked = true;
 }
