@@ -1,12 +1,14 @@
 #include "pullthread.h"
-PullThread::PullThread(Room *r)
+PullThread::PullThread(Room *r, QString id)
 {
     roomWidget = r;
+    roomid = id;
 }
 
 void PullThread::run()
 {
-    QString pullURL = "rtmp://192.168.211.153/live/livestream";
+    QString pullURL = "rtmp://192.168.211.153/live/livestream/" + roomid;
+//    QString pullURL = "rtmp://192.168.211.153/live/livestream";
 
     if(roomWidget->m_videoThread->isRunning())
     {

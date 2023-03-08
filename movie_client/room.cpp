@@ -33,7 +33,7 @@ Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QS
         connect(m_videoThread, SIGNAL(emitImage(const QImage&)), ui->openglWidget, SLOT(showImage(const QImage&)));
     }
 
-    PullThread *pullthread = new PullThread(this);
+    PullThread *pullthread = new PullThread(this, roomid);
     pullthread->start();
 }
 
@@ -185,7 +185,7 @@ void Room::closeEvent(QCloseEvent * event)
 void Room::on_videoButton_clicked()
 {
     QString name = QFileDialog::getOpenFileName(this, "选择视频", QCoreApplication::applicationFilePath());
-    PushThread *pushthread = new PushThread(name);
+    PushThread *pushthread = new PushThread(name, "rtmp://192.168.211.153/live/livestream/"+roomid);
     pushthread->start();
 }
 

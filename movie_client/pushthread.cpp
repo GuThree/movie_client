@@ -8,9 +8,10 @@ extern "C"
 #include "libavutil/time.h"
 };
 
-PushThread::PushThread(QString f)
+PushThread::PushThread(QString f, QString u)
 {
     fileName = f;
+    url = u;
 }
 
 void PushThread::run()
@@ -29,16 +30,11 @@ void PushThread::run()
     int videoindex=-1;
     int frame_index=0;
     int64_t start_time=0;
-    //in_filename  = "cuc_ieschool.mov";
-    //in_filename  = "cuc_ieschool.mkv";
-    //in_filename  = "cuc_ieschool.ts";
-    //in_filename  = "cuc_ieschool.mp4";
-    //in_filename  = "cuc_ieschool.h264";
-    in_filename  = "E:/Document/School/QT_demo/untitled/dishini.mp4";//输入URL（Input file URL）
-    //in_filename  = "shanghai03_p.h264";
 
-    out_filename = "rtmp://192.168.211.153/live/livestream";//输出 URL（Output URL）[RTMP]
-    //out_filename = "rtp://233.233.233.233:6666";//输出 URL（Output URL）[UDP]
+    in_filename  = fileName.toStdString().c_str();      //输入URL（Input file URL）
+
+    std::string s = url.toStdString();
+    out_filename = s.c_str();
 
     av_register_all();
     //Network

@@ -2562,28 +2562,7 @@ debug/addfriend.o: ../movie_client/addfriend.cpp ../movie_client/addfriend.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonObject \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
-		ui_addfriend.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h
+		ui_addfriend.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\addfriend.o ..\movie_client\addfriend.cpp
 
 debug/audioplayer.o: ../movie_client/audioplayer.cpp ../movie_client/audioplayer.h \
@@ -2857,22 +2836,7 @@ debug/chatlist.o: ../movie_client/chatlist.cpp ../movie_client/chatlist.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qfiledialog.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdir.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfileinfo.h \
-		ui_chatlist.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QListWidget \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QTabWidget \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qboxlayout.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayout.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgridlayout.h
+		ui_chatlist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\chatlist.o ..\movie_client\chatlist.cpp
 
 debug/enterroom.o: ../movie_client/enterroom.cpp ../movie_client/enterroom.h \
@@ -2990,28 +2954,7 @@ debug/enterroom.o: ../movie_client/enterroom.cpp ../movie_client/enterroom.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
-		ui_enterroom.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h
+		ui_enterroom.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\enterroom.o ..\movie_client\enterroom.cpp
 
 debug/ffmpeg.o: ../movie_client/ffmpeg.cpp ../movie_client/ffmpeg.h \
@@ -3282,23 +3225,7 @@ debug/invite.o: ../movie_client/invite.cpp ../movie_client/invite.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
-		ui_invite.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QListWidget \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qboxlayout.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayout.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgridlayout.h
+		ui_invite.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\invite.o ..\movie_client\invite.cpp
 
 debug/invited.o: ../movie_client/invited.cpp ../movie_client/invited.h \
@@ -3416,22 +3343,7 @@ debug/invited.o: ../movie_client/invited.cpp ../movie_client/invited.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
-		ui_invited.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h
+		ui_invited.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\invited.o ..\movie_client\invited.cpp
 
 debug/kick.o: ../movie_client/kick.cpp ../movie_client/kick.h \
@@ -3572,23 +3484,7 @@ debug/kick.o: ../movie_client/kick.cpp ../movie_client/kick.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
-		ui_kick.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QListWidget \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qboxlayout.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayout.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgridlayout.h
+		ui_kick.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\kick.o ..\movie_client\kick.cpp
 
 debug/main.o: ../movie_client/main.cpp ../movie_client/widget.h \
@@ -4127,24 +4023,7 @@ debug/privatechat.o: ../movie_client/privatechat.cpp ../movie_client/privatechat
 		../movie_client/include/libswresample/swresample.h \
 		../movie_client/include/libswresample/version.h \
 		../movie_client/pullthread.h \
-		ui_privatechat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QTextEdit \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtextedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextdocument.h
+		ui_privatechat.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\privatechat.o ..\movie_client\privatechat.cpp
 
 debug/pullthread.o: ../movie_client/pullthread.cpp ../movie_client/pullthread.h \
@@ -4347,42 +4226,7 @@ debug/pullthread.o: ../movie_client/pullthread.cpp ../movie_client/pullthread.h 
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFileDialog \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qfiledialog.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdir.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfileinfo.h \
-		ui_room.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFrame \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QListWidget \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QTextBrowser \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtextbrowser.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtextedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextdocument.h \
-		../movie_client/openglwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QOpenGLWidget \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qopenglwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QSurfaceFormat \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qsurfaceformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qopengl.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qt_windows.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/GLES3/gl3.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/GLES3/gl3platform.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/KHR/khrplatform.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/GLES2/gl2.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/GLES2/gl2platform.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qopengles2ext.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qopenglext.h
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfileinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\pullthread.o ..\movie_client\pullthread.cpp
 
 debug/pushthread.o: ../movie_client/pushthread.cpp ../movie_client/pushthread.h \
@@ -4464,7 +4308,20 @@ debug/pushthread.o: ../movie_client/pushthread.cpp ../movie_client/pushthread.h 
 		../movie_client/include/libavcodec/version.h \
 		../movie_client/include/libavformat/avio.h \
 		../movie_client/include/libavformat/version.h \
-		../movie_client/include/libavutil/time.h
+		../movie_client/include/libavutil/time.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDebug \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdebug.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qhash.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qmap.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qtextstream.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qiodevice.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qlocale.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qvariant.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qshareddata.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qset.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcontiguouscache.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer.h \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\pushthread.o ..\movie_client\pushthread.cpp
 
 debug/recvthread.o: ../movie_client/recvthread.cpp ../movie_client/recvthread.h \
@@ -4756,22 +4613,7 @@ debug/register.o: ../movie_client/register.cpp ../movie_client/register.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qfiledialog.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdir.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfileinfo.h \
-		ui_register.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h
+		ui_register.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\register.o ..\movie_client\register.cpp
 
 debug/room.o: ../movie_client/room.cpp ../movie_client/room.h \
@@ -4975,41 +4817,7 @@ debug/room.o: ../movie_client/room.cpp ../movie_client/room.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qdir.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfileinfo.h \
 		../movie_client/pullthread.h \
-		ui_room.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QFrame \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QListWidget \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QTextBrowser \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtextbrowser.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtextedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextdocument.h \
-		../movie_client/openglwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QOpenGLWidget \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qopenglwidget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QSurfaceFormat \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qsurfaceformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qopengl.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qt_windows.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/GLES3/gl3.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/GLES3/gl3platform.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/KHR/khrplatform.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/GLES2/gl2.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE/GLES2/gl2platform.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qopengles2ext.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qopenglext.h
+		ui_room.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\room.o ..\movie_client\room.cpp
 
 debug/sendthread.o: ../movie_client/sendthread.cpp ../movie_client/sendthread.h \
@@ -5434,22 +5242,7 @@ debug/widget.o: ../movie_client/widget.cpp ../movie_client/widget.h \
 		../movie_client/register.h \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDesktopWidget \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		ui_widget.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLineEdit \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlineedit.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextcursor.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextformat.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qpen.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtextoption.h \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h
+		ui_widget.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\widget.o ..\movie_client\widget.cpp
 
 debug/moc_addfriend.o: debug/moc_addfriend.cpp 

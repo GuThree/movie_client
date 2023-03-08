@@ -9,10 +9,11 @@ class Room;
 class PullThread : public QThread
 {
 public:
-    PullThread(Room *r);
+    PullThread(Room *r, QString id);
     void run();
 
 private:
+    QString roomid;
     Room * roomWidget;
 };
 
