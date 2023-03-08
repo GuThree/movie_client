@@ -17,6 +17,7 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
+#include <openglwidget.h>
 
 QT_BEGIN_NAMESPACE
 
@@ -26,7 +27,7 @@ public:
     QFrame *frame;
     QPushButton *videoButton;
     QPushButton *kickButton;
-    QWidget *widget;
+    OpenglWidget *openglWidget;
     QTextBrowser *textBrowser;
     QLineEdit *lineEdit;
     QPushButton *sendButton;
@@ -54,9 +55,9 @@ public:
         kickButton = new QPushButton(frame);
         kickButton->setObjectName(QString::fromUtf8("kickButton"));
         kickButton->setGeometry(QRect(900, 700, 80, 30));
-        widget = new QWidget(frame);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 0, 1000, 680));
+        openglWidget = new OpenglWidget(frame);
+        openglWidget->setObjectName(QString::fromUtf8("openglWidget"));
+        openglWidget->setGeometry(QRect(0, 0, 1000, 680));
         textBrowser = new QTextBrowser(Room);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setGeometry(QRect(1040, 310, 290, 410));

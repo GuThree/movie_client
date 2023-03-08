@@ -24,8 +24,17 @@ Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QS
     socket->write(ba);
 
     connect(mainWidget, &Chatlist::signal_to_sub_widget_member, this, &Room::show_room_member);
-    connect(mainWidget, &Chatlist::signal_to_sub_widget_member_id, this, &Room::deal_with_memberid); //
+    connect(mainWidget, &Chatlist::signal_to_sub_widget_member_id, this, &Room::deal_with_memberid);
     connect(mainWidget, &Chatlist::signal_to_sub_widget_room, this, &Room::show_room_text);
+
+    if(nullptr == m_videoThread)
+    {
+        m_videoThread = new VideoThread;
+        connect(m_videoThread, SIGNAL(emitImage(const QImage&)), ui->openglWidget, SLOT(showImage(const QImage&)));
+    }
+
+    PullThread *pullthread = new PullThread(this);
+    pullthread->start();
 }
 
 Room::~Room()
@@ -95,6 +104,7 @@ void Room::show_room_text(QJsonObject obj)
     }
 }
 
+// 服务器给成员ID时进行处理
 void Room::deal_with_memberid(QJsonObject obj)
 {
     if (obj.value("cmd").toString() == "get_room_member_id_reply")
@@ -126,13 +136,6 @@ void Room::on_leaveButton_clicked()
     QByteArray ba = QJsonDocument(obj).toJson();
     socket->write(ba);
 
-    for (int i = 0; i < roomWidgetList->size(); i++)
-    {
-        if (roomWidgetList->at(i).name == roomid)
-        {
-            roomWidgetList->removeAt(i);
-        }
-    }
     this->close();
 }
 
@@ -153,6 +156,12 @@ void Room::reset_friends(QHash<QString, QString> f)
 // 关闭对话框
 void Room::closeEvent(QCloseEvent * event)
 {
+    if(m_videoThread->isRunning())
+    {
+        m_videoThread->stopThread();
+    }
+    m_videoThread->m_ffmpeg->deleteFFmpeg();
+
     QJsonObject obj;
     obj.insert("cmd", "leave_room");
     obj.insert("username", userName);
@@ -172,7 +181,7 @@ void Room::closeEvent(QCloseEvent * event)
     event->accept();
 }
 
-
+// 选择视频按钮被点击
 void Room::on_videoButton_clicked()
 {
     QString name = QFileDialog::getOpenFileName(this, "选择视频", QCoreApplication::applicationFilePath());
@@ -180,6 +189,7 @@ void Room::on_videoButton_clicked()
     pushthread->start();
 }
 
+// 踢出成员按钮被点击
 void Room::on_kickButton_clicked()
 {
     QJsonObject obj;

@@ -272,6 +272,7 @@ Makefile: ../movie_client/movie_client.pro D:/Program/Qt/Qt5.14.2/5.14.2/mingw73
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/yacc.prf \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/lex.prf \
 		../movie_client/movie_client.pro \
+		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Multimedia.prl \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Widgets.prl \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Gui.prl \
 		D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Network.prl \
@@ -481,6 +482,7 @@ D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/exceptions.prf:
 D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/yacc.prf:
 D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/features/lex.prf:
 ../movie_client/movie_client.pro:
+D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Multimedia.prl:
 D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Widgets.prl:
 D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Gui.prl:
 D:/Program/Qt/Qt5.14.2/5.14.2/mingw73_32/lib/Qt5Network.prl:

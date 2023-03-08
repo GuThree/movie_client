@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,33 +17,43 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     addfriend.cpp \
+    audioplayer.cpp \
     chatlist.cpp \
     enterroom.cpp \
+    ffmpeg.cpp \
     invite.cpp \
     invited.cpp \
     kick.cpp \
     main.cpp \
+    openglwidget.cpp \
     privatechat.cpp \
+    pullthread.cpp \
     pushthread.cpp \
     recvthread.cpp \
     register.cpp \
     room.cpp \
     sendthread.cpp \
+    videothread.cpp \
     widget.cpp
 
 HEADERS += \
     addfriend.h \
+    audioplayer.h \
     chatlist.h \
     enterroom.h \
+    ffmpeg.h \
     invite.h \
     invited.h \
     kick.h \
+    openglwidget.h \
     privatechat.h \
+    pullthread.h \
     pushthread.h \
     recvthread.h \
     register.h \
     room.h \
     sendthread.h \
+    videothread.h \
     widget.h
 
 FORMS += \

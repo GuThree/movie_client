@@ -13,10 +13,14 @@
 #include "invite.h"
 #include "pushthread.h"
 #include "kick.h"
+#include "videothread.h"
 
 class Chatlist;
 struct RoomWidgetInfo;
 #include "chatlist.h"
+
+class PullThread;
+#include "pullthread.h"
 
 namespace Ui {
 class Room;
@@ -57,6 +61,9 @@ private:
     QList<RoomWidgetInfo> *roomWidgetList;
     QStringList memberListId;
     QStringList memberListNick;
+
+public:
+    VideoThread* m_videoThread =  nullptr;
 };
 
 #endif // ROOM_H

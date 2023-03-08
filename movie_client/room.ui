@@ -78,7 +78,7 @@
      <string>踢出成员</string>
     </property>
    </widget>
-   <widget class="QWidget" name="widget" native="true">
+   <widget class="OpenglWidget" name="openglWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -207,6 +207,13 @@
    </property>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>OpenglWidget</class>
+   <extends>QOpenGLWidget</extends>
+   <header location="global">openglwidget.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>
