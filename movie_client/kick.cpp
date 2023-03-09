@@ -6,6 +6,7 @@ Kick::Kick(QTcpSocket *s, QString r, QStringList mid, QStringList mni, QWidget *
     ui(new Ui::Kick)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     socket = s;
     roomid = r;
     memberlistid = mid;

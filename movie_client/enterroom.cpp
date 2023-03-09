@@ -6,6 +6,7 @@ EnterRoom::EnterRoom(QTcpSocket *s, QString u, QString n, QWidget *parent) :
     ui(new Ui::EnterRoom)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     socket = s;
     userName = u;
     nickName = n;

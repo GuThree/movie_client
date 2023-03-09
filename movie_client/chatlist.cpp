@@ -6,6 +6,7 @@ Chatlist::Chatlist(QTcpSocket *s, QString fri_id, QString fri_nick, QString u, Q
     ui(new Ui::Chatlist)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     userName = u;
     socket = s;
     connect(socket, &QTcpSocket::readyRead, this, &Chatlist::server_reply);
@@ -131,6 +132,8 @@ void Chatlist::client_nickname_reply(QString nick)
 {
     this->nickName = nick;
     this->setWindowTitle(nickName);
+    ui->usernamelabel->setText("用户名: "+userName);
+    ui->nicknamelabel->setText("昵称: "+nickName);
 }
 
 // 添加好友后服务器回复

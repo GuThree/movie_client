@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(225, 229, 228);</string>
+  </property>
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
@@ -34,6 +37,9 @@
      <height>30</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">font: 11pt &quot;黑体&quot;;</string>
+   </property>
    <property name="text">
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:12pt;&quot;&gt;房号&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
@@ -47,6 +53,10 @@
      <height>30</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+border-radius:7px;</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="cancelButton">
    <property name="geometry">
@@ -56,6 +66,11 @@
      <width>80</width>
      <height>30</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
    </property>
    <property name="text">
     <string>取消</string>
@@ -69,6 +84,11 @@
      <width>80</width>
      <height>30</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
    </property>
    <property name="text">
     <string>加入</string>

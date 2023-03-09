@@ -31,20 +31,30 @@ public:
         if (EnterRoom->objectName().isEmpty())
             EnterRoom->setObjectName(QString::fromUtf8("EnterRoom"));
         EnterRoom->resize(400, 300);
+        EnterRoom->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
         label = new QLabel(EnterRoom);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(50, 100, 70, 30));
         label->setMinimumSize(QSize(70, 30));
         label->setMaximumSize(QSize(70, 30));
+        label->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
         lineEdit = new QLineEdit(EnterRoom);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setGeometry(QRect(150, 100, 200, 30));
+        lineEdit->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"border-radius:7px;"));
         cancelButton = new QPushButton(EnterRoom);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
         cancelButton->setGeometry(QRect(80, 200, 80, 30));
+        cancelButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         enterButton = new QPushButton(EnterRoom);
         enterButton->setObjectName(QString::fromUtf8("enterButton"));
         enterButton->setGeometry(QRect(240, 200, 80, 30));
+        enterButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
 
         retranslateUi(EnterRoom);
 

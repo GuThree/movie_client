@@ -17,6 +17,7 @@ release/room.o
 release/sendthread.o
 release/videothread.o
 release/widget.o
+release/qrc_res.o
 release/moc_addfriend.o
 release/moc_chatlist.o
 release/moc_enterroom.o

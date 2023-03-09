@@ -17,6 +17,7 @@ debug/room.o
 debug/sendthread.o
 debug/videothread.o
 debug/widget.o
+debug/qrc_res.o
 debug/moc_addfriend.o
 debug/moc_chatlist.o
 debug/moc_enterroom.o

@@ -32,6 +32,7 @@ public:
         Kick->resize(300, 400);
         Kick->setMinimumSize(QSize(300, 400));
         Kick->setMaximumSize(QSize(300, 400));
+        Kick->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
         verticalLayout = new QVBoxLayout(Kick);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         listWidget = new QListWidget(Kick);
@@ -41,6 +42,10 @@ public:
 
         kickButton = new QPushButton(Kick);
         kickButton->setObjectName(QString::fromUtf8("kickButton"));
+        kickButton->setMinimumSize(QSize(0, 30));
+        kickButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
 
         verticalLayout->addWidget(kickButton);
 

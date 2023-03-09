@@ -6,11 +6,13 @@ PrivateChat::PrivateChat(QTcpSocket *s, QString u, QString f, Chatlist *c, QList
     ui(new Ui::PrivateChat)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     socket = s;
     userName = u;
     friendName = f;
     mainWidget = c;
     chatWidgetList = l;
+    ui->fileButton->hide();
 
     connect(mainWidget, &Chatlist::signal_to_sub_widget, this, &PrivateChat::show_text_slot);
 }

@@ -6,6 +6,7 @@ Invite::Invite(QTcpSocket *s, QString r, QString u, QString n, QHash<QString, QS
     ui(new Ui::Invite)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     socket = s;
     username = u;
     nickname = n;

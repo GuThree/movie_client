@@ -6,6 +6,7 @@ Addfriend::Addfriend(QTcpSocket *s, QString u, QWidget *parent) :
     ui(new Ui::Addfriend)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     socket = s;
     userName = u;
 }

@@ -6,6 +6,7 @@ Invited::Invited(QTcpSocket *s, QString r, QString u, QString n, QString f, QWid
     ui(new Ui::Invited)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     socket = s;
     roomid = r;
     userName = u;

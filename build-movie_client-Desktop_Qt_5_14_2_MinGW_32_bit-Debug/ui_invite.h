@@ -32,6 +32,7 @@ public:
         Invite->resize(300, 400);
         Invite->setMinimumSize(QSize(300, 400));
         Invite->setMaximumSize(QSize(300, 400));
+        Invite->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
         verticalLayout = new QVBoxLayout(Invite);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         listWidget = new QListWidget(Invite);
@@ -42,6 +43,9 @@ public:
         inviteButton = new QPushButton(Invite);
         inviteButton->setObjectName(QString::fromUtf8("inviteButton"));
         inviteButton->setMinimumSize(QSize(0, 30));
+        inviteButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
 
         verticalLayout->addWidget(inviteButton);
 

@@ -42,6 +42,7 @@ public:
         Room->resize(1360, 790);
         Room->setMinimumSize(QSize(1360, 790));
         Room->setMaximumSize(QSize(1360, 790));
+        Room->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
         frame = new QFrame(Room);
         frame->setObjectName(QString::fromUtf8("frame"));
         frame->setGeometry(QRect(30, 30, 1000, 730));
@@ -52,38 +53,60 @@ public:
         videoButton = new QPushButton(frame);
         videoButton->setObjectName(QString::fromUtf8("videoButton"));
         videoButton->setGeometry(QRect(810, 700, 80, 30));
+        videoButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         kickButton = new QPushButton(frame);
         kickButton->setObjectName(QString::fromUtf8("kickButton"));
         kickButton->setGeometry(QRect(900, 700, 80, 30));
+        kickButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         openglWidget = new OpenglWidget(frame);
         openglWidget->setObjectName(QString::fromUtf8("openglWidget"));
         openglWidget->setGeometry(QRect(0, 0, 1000, 680));
+        openglWidget->setStyleSheet(QString::fromUtf8(""));
         textBrowser = new QTextBrowser(Room);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
         textBrowser->setGeometry(QRect(1040, 310, 290, 410));
         textBrowser->setMinimumSize(QSize(290, 410));
         textBrowser->setMaximumSize(QSize(290, 410));
+        textBrowser->setStyleSheet(QString::fromUtf8("border-radius:7px;\n"
+"background-color:rgb(255, 255, 255);"));
         lineEdit = new QLineEdit(Room);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setGeometry(QRect(1040, 730, 240, 30));
         lineEdit->setMinimumSize(QSize(240, 30));
         lineEdit->setMaximumSize(QSize(240, 30));
+        lineEdit->setStyleSheet(QString::fromUtf8("border-radius:7px;\n"
+"background-color:rgb(255, 255, 255);"));
         sendButton = new QPushButton(Room);
         sendButton->setObjectName(QString::fromUtf8("sendButton"));
         sendButton->setGeometry(QRect(1280, 730, 50, 30));
         sendButton->setMinimumSize(QSize(50, 30));
         sendButton->setMaximumSize(QSize(50, 30));
+        sendButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         listWidget = new QListWidget(Room);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
         listWidget->setGeometry(QRect(1040, 70, 290, 230));
         listWidget->setMinimumSize(QSize(290, 230));
         listWidget->setMaximumSize(QSize(290, 230));
+        listWidget->setStyleSheet(QString::fromUtf8("border-radius:7px;\n"
+"background-color:rgb(255, 255, 255);"));
         inviteButton = new QPushButton(Room);
         inviteButton->setObjectName(QString::fromUtf8("inviteButton"));
         inviteButton->setGeometry(QRect(1040, 30, 130, 30));
+        inviteButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         leaveButton = new QPushButton(Room);
         leaveButton->setObjectName(QString::fromUtf8("leaveButton"));
         leaveButton->setGeometry(QRect(1200, 30, 130, 30));
+        leaveButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
 
         retranslateUi(Room);
 

@@ -31,16 +31,24 @@ public:
         Invited->resize(360, 200);
         Invited->setMinimumSize(QSize(360, 200));
         Invited->setMaximumSize(QSize(360, 200));
+        Invited->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
         label = new QLabel(Invited);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(80, 50, 200, 30));
-        label->setStyleSheet(QString::fromUtf8(""));
+        label->setStyleSheet(QString::fromUtf8("border-radius:7px;\n"
+"background-color:rgb(163, 183, 160);"));
         cancelButton = new QPushButton(Invited);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
         cancelButton->setGeometry(QRect(50, 140, 80, 25));
+        cancelButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         enterButton = new QPushButton(Invited);
         enterButton->setObjectName(QString::fromUtf8("enterButton"));
         enterButton->setGeometry(QRect(230, 140, 80, 25));
+        enterButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
 
         retranslateUi(Invited);
 

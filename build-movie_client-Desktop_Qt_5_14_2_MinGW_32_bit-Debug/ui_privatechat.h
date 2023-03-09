@@ -30,19 +30,26 @@ public:
     {
         if (PrivateChat->objectName().isEmpty())
             PrivateChat->setObjectName(QString::fromUtf8("PrivateChat"));
-        PrivateChat->resize(562, 453);
+        PrivateChat->resize(570, 460);
+        PrivateChat->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
         textEdit = new QTextEdit(PrivateChat);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(9, 9, 541, 291));
+        textEdit->setGeometry(QRect(10, 10, 550, 300));
         lineEdit = new QLineEdit(PrivateChat);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(10, 320, 531, 21));
+        lineEdit->setGeometry(QRect(10, 320, 550, 25));
         sendButton = new QPushButton(PrivateChat);
         sendButton->setObjectName(QString::fromUtf8("sendButton"));
-        sendButton->setGeometry(QRect(380, 390, 80, 20));
+        sendButton->setGeometry(QRect(380, 390, 80, 30));
+        sendButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         fileButton = new QPushButton(PrivateChat);
         fileButton->setObjectName(QString::fromUtf8("fileButton"));
-        fileButton->setGeometry(QRect(60, 390, 80, 20));
+        fileButton->setGeometry(QRect(60, 390, 80, 30));
+        fileButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
 
         retranslateUi(PrivateChat);
 

@@ -7,6 +7,7 @@ Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QS
     ui(new Ui::Room)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     is_owner = o;
     socket = s;
     roomid = r;
@@ -16,6 +17,12 @@ Room::Room(QTcpSocket *s, QString r, QString u, QString n, Chatlist *c, QHash<QS
     mainWidget = c;
     roomWidgetList = l;
     is_kickClicked = false;
+
+    if(!is_owner)
+    {
+        ui->kickButton->hide();
+        ui->videoButton->hide();
+    }
 
     QJsonObject obj;
     obj.insert("cmd", "get_room_member");
@@ -184,7 +191,7 @@ void Room::closeEvent(QCloseEvent * event)
 // 选择视频按钮被点击
 void Room::on_videoButton_clicked()
 {
-    QString name = QFileDialog::getOpenFileName(this, "选择视频", QCoreApplication::applicationFilePath());
+    QString name = QFileDialog::getOpenFileName(this, "选择视频", "C:",QCoreApplication::applicationFilePath());
     PushThread *pushthread = new PushThread(name, "rtmp://192.168.211.153/live/livestream/"+roomid);
     pushthread->start();
 }

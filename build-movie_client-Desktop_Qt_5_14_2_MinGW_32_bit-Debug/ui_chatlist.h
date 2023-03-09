@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QTabWidget>
@@ -30,8 +31,8 @@ public:
     QVBoxLayout *verticalLayout;
     QListWidget *friendList;
     QWidget *tab_2;
-    QVBoxLayout *verticalLayout_2;
-    QListWidget *groupList;
+    QLabel *usernamelabel;
+    QLabel *nicknamelabel;
 
     void setupUi(QWidget *Chatlist)
     {
@@ -40,51 +41,66 @@ public:
         Chatlist->resize(360, 750);
         Chatlist->setMinimumSize(QSize(360, 750));
         Chatlist->setMaximumSize(QSize(360, 750));
+        Chatlist->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
         addFriendButton = new QPushButton(Chatlist);
         addFriendButton->setObjectName(QString::fromUtf8("addFriendButton"));
         addFriendButton->setGeometry(QRect(30, 680, 300, 30));
         addFriendButton->setMinimumSize(QSize(300, 30));
         addFriendButton->setMaximumSize(QSize(300, 30));
+        addFriendButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         createRoomButton = new QPushButton(Chatlist);
         createRoomButton->setObjectName(QString::fromUtf8("createRoomButton"));
         createRoomButton->setGeometry(QRect(30, 620, 300, 30));
         createRoomButton->setMinimumSize(QSize(300, 30));
         createRoomButton->setMaximumSize(QSize(300, 30));
+        createRoomButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         enterRoomButton = new QPushButton(Chatlist);
         enterRoomButton->setObjectName(QString::fromUtf8("enterRoomButton"));
         enterRoomButton->setGeometry(QRect(30, 560, 300, 30));
         enterRoomButton->setMinimumSize(QSize(300, 30));
         enterRoomButton->setMaximumSize(QSize(300, 30));
+        enterRoomButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         tabWidget = new QTabWidget(Chatlist);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         tabWidget->setGeometry(QRect(30, 30, 300, 500));
         tabWidget->setMinimumSize(QSize(300, 500));
         tabWidget->setMaximumSize(QSize(300, 500));
-        tabWidget->setStyleSheet(QString::fromUtf8("QTabBar::tab{width:110}"));
+        tabWidget->setStyleSheet(QString::fromUtf8("QTabBar::tab{\n"
+"	width:110;\n"
+"	font: 11pt \"\351\273\221\344\275\223\";\n"
+"}"));
         tab_1 = new QWidget();
         tab_1->setObjectName(QString::fromUtf8("tab_1"));
         verticalLayout = new QVBoxLayout(tab_1);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         friendList = new QListWidget(tab_1);
         friendList->setObjectName(QString::fromUtf8("friendList"));
+        friendList->setStyleSheet(QString::fromUtf8(""));
 
         verticalLayout->addWidget(friendList);
 
         tabWidget->addTab(tab_1, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        verticalLayout_2 = new QVBoxLayout(tab_2);
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        groupList = new QListWidget(tab_2);
-        groupList->setObjectName(QString::fromUtf8("groupList"));
-
-        verticalLayout_2->addWidget(groupList);
-
+        usernamelabel = new QLabel(tab_2);
+        usernamelabel->setObjectName(QString::fromUtf8("usernamelabel"));
+        usernamelabel->setGeometry(QRect(0, 0, 300, 30));
+        usernamelabel->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
+        nicknamelabel = new QLabel(tab_2);
+        nicknamelabel->setObjectName(QString::fromUtf8("nicknamelabel"));
+        nicknamelabel->setGeometry(QRect(0, 30, 300, 30));
+        nicknamelabel->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
         tabWidget->addTab(tab_2, QString());
 
         retranslateUi(Chatlist);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(Chatlist);
@@ -100,6 +116,8 @@ public:
         tabWidget->setWhatsThis(QCoreApplication::translate("Chatlist", "<html><head/><body><p><br/></p></body></html>", nullptr));
 #endif // QT_CONFIG(whatsthis)
         tabWidget->setTabText(tabWidget->indexOf(tab_1), QCoreApplication::translate("Chatlist", "\345\245\275\345\217\213", nullptr));
+        usernamelabel->setText(QString());
+        nicknamelabel->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("Chatlist", "\344\270\252\344\272\272\347\251\272\351\227\264", nullptr));
     } // retranslateUi
 

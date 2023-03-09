@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(225, 229, 228);</string>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QListWidget" name="listWidget"/>
@@ -36,6 +39,11 @@
        <width>0</width>
        <height>30</height>
       </size>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
      </property>
      <property name="text">
       <string>邀请</string>

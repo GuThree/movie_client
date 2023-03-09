@@ -7,11 +7,21 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     this->setWindowTitle("登录");
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
+
+    QImage* img = new QImage;
+    QImage* scaledimg = new QImage;
+    img->load(":/pic/logo.png");
+    *scaledimg = img->scaled(ui->logo->width(), ui->logo->height(), Qt::KeepAspectRatio);
+    ui->logo->setPixmap(QPixmap::fromImage(*scaledimg));
+
     socket = new QTcpSocket;
     socket->connectToHost(QHostAddress("47.112.153.10"), 8000);
 
     connect(socket, &QTcpSocket::connected, this, &Widget::connect_success);
     connect(socket, &QTcpSocket::readyRead, this, &Widget::server_reply);
+
+    ui->passwdLineEdit->setEchoMode(QLineEdit::Password);
 }
 
 Widget::~Widget()

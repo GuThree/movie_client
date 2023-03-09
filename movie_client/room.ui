@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(225, 229, 228);</string>
+  </property>
   <widget class="QFrame" name="frame">
    <property name="geometry">
     <rect>
@@ -61,6 +64,11 @@
       <height>30</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
+    </property>
     <property name="text">
      <string>选择视频</string>
     </property>
@@ -74,6 +82,11 @@
       <height>30</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
+    </property>
     <property name="text">
      <string>踢出成员</string>
     </property>
@@ -86,6 +99,9 @@
       <width>1000</width>
       <height>680</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
     </property>
    </widget>
   </widget>
@@ -110,6 +126,10 @@
      <height>410</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:7px;
+background-color:rgb(255, 255, 255);</string>
+   </property>
   </widget>
   <widget class="QLineEdit" name="lineEdit">
    <property name="geometry">
@@ -132,6 +152,10 @@
      <height>30</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:7px;
+background-color:rgb(255, 255, 255);</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="sendButton">
    <property name="geometry">
@@ -153,6 +177,11 @@
      <width>50</width>
      <height>30</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
    </property>
    <property name="text">
     <string>发送</string>
@@ -179,6 +208,10 @@
      <height>230</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">border-radius:7px;
+background-color:rgb(255, 255, 255);</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="inviteButton">
    <property name="geometry">
@@ -188,6 +221,11 @@
      <width>130</width>
      <height>30</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
    </property>
    <property name="text">
     <string>邀请好友</string>
@@ -201,6 +239,11 @@
      <width>130</width>
      <height>30</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
    </property>
    <property name="text">
     <string>退出房间</string>

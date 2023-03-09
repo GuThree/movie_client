@@ -33,18 +33,28 @@ public:
         Addfriend->resize(400, 300);
         Addfriend->setMinimumSize(QSize(400, 300));
         Addfriend->setMaximumSize(QSize(400, 300));
+        Addfriend->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
         label = new QLabel(Addfriend);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(50, 100, 70, 30));
+        label->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
         lineEdit = new QLineEdit(Addfriend);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setGeometry(QRect(150, 100, 200, 30));
+        lineEdit->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"border-radius:7px;"));
         addfriendButton = new QPushButton(Addfriend);
         addfriendButton->setObjectName(QString::fromUtf8("addfriendButton"));
         addfriendButton->setGeometry(QRect(240, 200, 80, 30));
+        addfriendButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
         cancelButton = new QPushButton(Addfriend);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
         cancelButton->setGeometry(QRect(80, 200, 80, 30));
+        cancelButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
+"font: 11pt \"\351\273\221\344\275\223\";\n"
+"border-radius:7px;"));
 
         retranslateUi(Addfriend);
 
@@ -54,7 +64,7 @@ public:
     void retranslateUi(QWidget *Addfriend)
     {
         Addfriend->setWindowTitle(QCoreApplication::translate("Addfriend", "Form", nullptr));
-        label->setText(QCoreApplication::translate("Addfriend", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">\345\245\275\345\217\213\350\264\246\345\217\267</span></p></body></html>", nullptr));
+        label->setText(QCoreApplication::translate("Addfriend", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">\345\245\275\345\217\213\350\264\246\345\217\267</span></p></body></html>", nullptr));
         addfriendButton->setText(QCoreApplication::translate("Addfriend", "\346\267\273\345\212\240", nullptr));
         cancelButton->setText(QCoreApplication::translate("Addfriend", "\345\217\226\346\266\210", nullptr));
     } // retranslateUi

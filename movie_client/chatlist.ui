@@ -25,6 +25,9 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:rgb(225, 229, 228);</string>
+  </property>
   <widget class="QPushButton" name="addFriendButton">
    <property name="geometry">
     <rect>
@@ -45,6 +48,11 @@
      <width>300</width>
      <height>30</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
    </property>
    <property name="text">
     <string>添加好友</string>
@@ -71,6 +79,11 @@
      <height>30</height>
     </size>
    </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
+   </property>
    <property name="text">
     <string>创建房间</string>
    </property>
@@ -95,6 +108,11 @@
      <width>300</width>
      <height>30</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color:rgb(163, 183, 160);
+font: 11pt &quot;黑体&quot;;
+border-radius:7px;</string>
    </property>
    <property name="text">
     <string>进入房间</string>
@@ -125,10 +143,13 @@
     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
    </property>
    <property name="styleSheet">
-    <string notr="true">QTabBar::tab{width:110}</string>
+    <string notr="true">QTabBar::tab{
+	width:110;
+	font: 11pt &quot;黑体&quot;;
+}</string>
    </property>
    <property name="currentIndex">
-    <number>0</number>
+    <number>1</number>
    </property>
    <widget class="QWidget" name="tab_1">
     <attribute name="title">
@@ -136,7 +157,11 @@
     </attribute>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QListWidget" name="friendList"/>
+      <widget class="QListWidget" name="friendList">
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+      </widget>
      </item>
     </layout>
    </widget>
@@ -144,11 +169,38 @@
     <attribute name="title">
      <string>个人空间</string>
     </attribute>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QListWidget" name="groupList"/>
-     </item>
-    </layout>
+    <widget class="QLabel" name="usernamelabel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>300</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 11pt &quot;黑体&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+    <widget class="QLabel" name="nicknamelabel">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>30</y>
+       <width>300</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font: 11pt &quot;黑体&quot;;</string>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
    </widget>
   </widget>
  </widget>

@@ -29,6 +29,7 @@ public:
     QLineEdit *passwdLineEdit;
     QPushButton *registerButton;
     QPushButton *loginButton;
+    QLabel *label_4;
 
     void setupUi(QWidget *Register)
     {
@@ -37,21 +38,48 @@ public:
         Register->resize(420, 720);
         Register->setMinimumSize(QSize(420, 720));
         Register->setMaximumSize(QSize(420, 720));
+        Register->setStyleSheet(QString::fromUtf8("QWidget#Register{\n"
+"	background-color:rgb(225, 229, 228);\n"
+"}\n"
+"QPushButton#registerButton{\n"
+"	background-color:rgb(163, 183, 160);\n"
+"	border-radius:10px;\n"
+"}\n"
+"QPushButton#loginButton{\n"
+"	background-color:rgb(163, 183, 160);\n"
+"	border-radius:10px;\n"
+"}\n"
+"QLineEdit#userLineEdit{\n"
+"	background-color:rgb(163, 183, 160);\n"
+"	border-radius:5px;\n"
+"}\n"
+"QLineEdit#passwdLineEdit{\n"
+"	background-color:rgb(163, 183, 160);\n"
+"	border-radius:5px;\n"
+"}\n"
+"QLineEdit#nameLineEdit{\n"
+"	background-color:rgb(163, 183, 160);\n"
+"	border-radius:5px;\n"
+"}\n"
+""));
         label = new QLabel(Register);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(40, 110, 70, 40));
         label->setMinimumSize(QSize(70, 40));
         label->setMaximumSize(QSize(70, 40));
+        label->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
         label_2 = new QLabel(Register);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setGeometry(QRect(40, 210, 70, 40));
         label_2->setMinimumSize(QSize(70, 40));
         label_2->setMaximumSize(QSize(70, 40));
+        label_2->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
         label_3 = new QLabel(Register);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setGeometry(QRect(40, 310, 70, 40));
         label_3->setMinimumSize(QSize(70, 40));
         label_3->setMaximumSize(QSize(70, 40));
+        label_3->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
         userLineEdit = new QLineEdit(Register);
         userLineEdit->setObjectName(QString::fromUtf8("userLineEdit"));
         userLineEdit->setGeometry(QRect(130, 115, 250, 30));
@@ -72,11 +100,17 @@ public:
         registerButton->setGeometry(QRect(40, 510, 340, 40));
         registerButton->setMinimumSize(QSize(340, 40));
         registerButton->setMaximumSize(QSize(340, 40));
+        registerButton->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
         loginButton = new QPushButton(Register);
         loginButton->setObjectName(QString::fromUtf8("loginButton"));
         loginButton->setGeometry(QRect(40, 590, 340, 40));
         loginButton->setMinimumSize(QSize(340, 40));
         loginButton->setMaximumSize(QSize(340, 40));
+        loginButton->setStyleSheet(QString::fromUtf8("font: 11pt \"\351\273\221\344\275\223\";"));
+        label_4 = new QLabel(Register);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(40, 40, 60, 40));
+        label_4->setStyleSheet(QString::fromUtf8("font: 16pt \"\351\273\221\344\275\223\";"));
 
         retranslateUi(Register);
 
@@ -91,6 +125,7 @@ public:
         label_3->setText(QCoreApplication::translate("Register", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt;\">\345\257\206\347\240\201</span></p></body></html>", nullptr));
         registerButton->setText(QCoreApplication::translate("Register", "\346\263\250\345\206\214", nullptr));
         loginButton->setText(QCoreApplication::translate("Register", "\345\216\273\347\231\273\345\275\225", nullptr));
+        label_4->setText(QCoreApplication::translate("Register", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">\346\263\250\345\206\214</span></p></body></html>", nullptr));
     } // retranslateUi
 
 };

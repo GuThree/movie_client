@@ -6,10 +6,13 @@ Register::Register(QTcpSocket *s, Widget * w, QWidget *parent) :
     ui(new Ui::Register)
 {
     ui->setupUi(this);
+    this->setWindowIcon(QIcon(":/pic/icon.png"));
     socket = s;
     widget = w;
 
     connect(socket, &QTcpSocket::readyRead, this, &Register::server_reply);
+
+    ui->passwdLineEdit->setEchoMode(QLineEdit::Password);
 }
 
 Register::~Register()
