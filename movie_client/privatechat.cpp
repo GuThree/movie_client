@@ -35,8 +35,8 @@ void PrivateChat::on_sendButton_clicked()
     socket->write(ba);
 
     ui->lineEdit->clear();
-    ui->textEdit->append(text);
-    ui->textEdit->append("\n");
+    ui->textBrowser->append("我:"+text);
+    ui->textBrowser->append("\n");
 }
 
 // 传输文件按键被点击
@@ -74,8 +74,8 @@ void PrivateChat::show_text_slot(QJsonObject obj)
                 this->showNormal();
             }
             this->activateWindow();
-            ui->textEdit->append(obj.value("text").toString());
-            ui->textEdit->append("\n");
+            ui->textBrowser->append("TA:"+obj.value("text").toString());
+            ui->textBrowser->append("\n");
         }
     }
 }

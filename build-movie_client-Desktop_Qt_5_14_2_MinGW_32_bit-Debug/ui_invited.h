@@ -35,8 +35,7 @@ public:
         label = new QLabel(Invited);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(80, 50, 200, 30));
-        label->setStyleSheet(QString::fromUtf8("border-radius:7px;\n"
-"background-color:rgb(163, 183, 160);"));
+        label->setStyleSheet(QString::fromUtf8("border-radius:7px;"));
         cancelButton = new QPushButton(Invited);
         cancelButton->setObjectName(QString::fromUtf8("cancelButton"));
         cancelButton->setGeometry(QRect(50, 140, 80, 25));

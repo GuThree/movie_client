@@ -191,7 +191,7 @@ void Room::closeEvent(QCloseEvent * event)
 // 选择视频按钮被点击
 void Room::on_videoButton_clicked()
 {
-    QString name = QFileDialog::getOpenFileName(this, "选择视频", "C:",QCoreApplication::applicationFilePath());
+    QString name = QFileDialog::getOpenFileName(this, "选择视频", "C:", tr("MP4(*mp4)"));
     PushThread *pushthread = new PushThread(name, "rtmp://192.168.211.153/live/livestream/"+roomid);
     pushthread->start();
 }

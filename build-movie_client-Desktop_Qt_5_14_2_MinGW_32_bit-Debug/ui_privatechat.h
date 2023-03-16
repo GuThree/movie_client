@@ -13,7 +13,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,20 +21,19 @@ QT_BEGIN_NAMESPACE
 class Ui_PrivateChat
 {
 public:
-    QTextEdit *textEdit;
     QLineEdit *lineEdit;
     QPushButton *sendButton;
     QPushButton *fileButton;
+    QTextBrowser *textBrowser;
 
     void setupUi(QWidget *PrivateChat)
     {
         if (PrivateChat->objectName().isEmpty())
             PrivateChat->setObjectName(QString::fromUtf8("PrivateChat"));
         PrivateChat->resize(570, 460);
+        PrivateChat->setMinimumSize(QSize(570, 460));
+        PrivateChat->setMaximumSize(QSize(570, 460));
         PrivateChat->setStyleSheet(QString::fromUtf8("background-color:rgb(225, 229, 228);"));
-        textEdit = new QTextEdit(PrivateChat);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(10, 10, 550, 300));
         lineEdit = new QLineEdit(PrivateChat);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setGeometry(QRect(10, 320, 550, 25));
@@ -50,6 +49,9 @@ public:
         fileButton->setStyleSheet(QString::fromUtf8("background-color:rgb(163, 183, 160);\n"
 "font: 11pt \"\351\273\221\344\275\223\";\n"
 "border-radius:7px;"));
+        textBrowser = new QTextBrowser(PrivateChat);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+        textBrowser->setGeometry(QRect(10, 10, 550, 300));
 
         retranslateUi(PrivateChat);
 

@@ -37,13 +37,14 @@ void PushThread::run()
     out_filename = s.c_str();
 
     av_register_all();
-    //Network
+    // 网络初始化
     avformat_network_init();
-    //输入（Input）
+    // 通过路径，将视频信息读入上下文
     if ((ret = avformat_open_input(&ifmt_ctx, in_filename, 0, 0)) < 0) {
         printf( "Could not open input file.");
         goto end;
     }
+    // 获取流信息
     if ((ret = avformat_find_stream_info(ifmt_ctx, 0)) < 0) {
         printf( "Failed to retrieve input stream information");
         goto end;
@@ -55,10 +56,10 @@ void PushThread::run()
             break;
         }
 
+    // 获取视频封装信息，比如视频中有哪些流，流的具体情况
     av_dump_format(ifmt_ctx, 0, in_filename, 0);
 
-    //输出（Output）
-
+    // 新建输出上下文
     avformat_alloc_output_context2(&ofmt_ctx, NULL, "flv", out_filename); //RTMP
     //avformat_alloc_output_context2(&ofmt_ctx, NULL, "mpegts", out_filename);//UDP
 
@@ -69,7 +70,7 @@ void PushThread::run()
     }
     ofmt = ofmt_ctx->oformat;
     for (i = 0; i < ifmt_ctx->nb_streams; i++) {
-        //根据输入流创建输出流（Create output AVStream according to input AVStream）
+        // 根据输入流创建输出流
         AVStream *in_stream = ifmt_ctx->streams[i];
         AVStream *out_stream = avformat_new_stream(ofmt_ctx, in_stream->codec->codec);
         if (!out_stream) {
@@ -77,7 +78,7 @@ void PushThread::run()
             ret = AVERROR_UNKNOWN;
             goto end;
         }
-        //复制AVCodecContext的设置（Copy the settings of AVCodecContext）
+        //复制AVCodecContext的设置
         ret = avcodec_copy_context(out_stream->codec, in_stream->codec);
         if (ret < 0) {
             printf( "Failed to copy context from input to output stream codec context\n");
@@ -87,17 +88,20 @@ void PushThread::run()
         if (ofmt_ctx->oformat->flags & AVFMT_GLOBALHEADER)
             out_stream->codec->flags |= CODEC_FLAG_GLOBAL_HEADER;
     }
-    //Dump Format------------------
+
+    // 获取视频封装信息，比如视频中有哪些流，流的具体情况
     av_dump_format(ofmt_ctx, 0, out_filename, 1);
-    //打开输出URL（Open output URL）
+    // 打开输出URL
     if (!(ofmt->flags & AVFMT_NOFILE)) {
+        // 打开输出流
         ret = avio_open(&ofmt_ctx->pb, out_filename, AVIO_FLAG_WRITE);
         if (ret < 0) {
             printf( "Could not open output URL '%s'", out_filename);
             goto end;
         }
     }
-    //写文件头（Write file header）
+
+    //写文件头
     ret = avformat_write_header(ofmt_ctx, NULL);
     if (ret < 0) {
         printf( "Error occurred when opening output URL\n");
@@ -107,7 +111,7 @@ void PushThread::run()
     start_time=av_gettime();
     while (1) {
         AVStream *in_stream, *out_stream;
-        //获取一个AVPacket（Get an AVPacket）
+        //获取一个AVPacket，即读一个解码前的数据包
         ret = av_read_frame(ifmt_ctx, &pkt);
         if (ret < 0)
             break;

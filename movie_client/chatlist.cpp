@@ -12,7 +12,7 @@ Chatlist::Chatlist(QTcpSocket *s, QString fri_id, QString fri_nick, QString u, Q
     connect(socket, &QTcpSocket::readyRead, this, &Chatlist::server_reply);
 
     // 陈列用户的好友和群聊内容
-    QStringList f_id = fri_id.split('|');
+    f_id = fri_id.split('|');
     QStringList f_nick = fri_nick.split('|');
     for (int i = 0; i < f_id.size(); i++)
     {
@@ -269,12 +269,13 @@ void Chatlist::client_chat_reply(QJsonObject &obj)
 
     if (flag == 0)   // 聊天窗口没有打开过
     {
-        QString friendName = obj.value("user_from").toString();
-        PrivateChat *privateChatWidget = new PrivateChat(socket, userName, friendName, this, &chatWidgetList);
+        QString friendId = obj.value("user_from").toString();
+        QString friendName = obj.value("nick_from").toString();
+        PrivateChat *privateChatWidget = new PrivateChat(socket, userName, friendId, this, &chatWidgetList);
         privateChatWidget->setWindowTitle(friendName);
         privateChatWidget->show();
 
-        ChatWidgetInfo c = {privateChatWidget, friendName};
+        ChatWidgetInfo c = {privateChatWidget, friendId};
         chatWidgetList.push_back(c);
     }
 
@@ -384,11 +385,12 @@ void Chatlist::on_enterRoomButton_clicked()
 void Chatlist::on_friendList_double_clicked()
 {
     QString friendName = ui->friendList->currentItem()->text();
-    PrivateChat *privateChatWidget = new PrivateChat(socket, userName, friendName, this, &chatWidgetList);
+    int i = ui->friendList->currentRow();
+    PrivateChat *privateChatWidget = new PrivateChat(socket, userName, f_id.at(i), this, &chatWidgetList);
     privateChatWidget->setWindowTitle(friendName);
     privateChatWidget->show();
 
-    ChatWidgetInfo c = {privateChatWidget, friendName};
+    ChatWidgetInfo c = {privateChatWidget, f_id.at(i)};
     chatWidgetList.push_back(c);
 }
 

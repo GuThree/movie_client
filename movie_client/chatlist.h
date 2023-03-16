@@ -82,6 +82,7 @@ private:
     QTcpSocket *socket;
     QString userName;
     QString nickName;
+    QStringList f_id;
     QHash<QString, QString> friendlist;
     QList<ChatWidgetInfo> chatWidgetList;           // 现有打开的所有好友聊天窗口信息
     QList<RoomWidgetInfo> roomWidgetList;         // 现有打开的所有群组聊天窗口信息
